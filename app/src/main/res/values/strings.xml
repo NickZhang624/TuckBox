@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">TuckBoxApp</string>
+    <string-array name="Title">
+        <item>Mr</item>
+        <item>Ms</item>
+    </string-array>
+    <string-array name="Area">
+        <item>Palmerston North</item>
+        <item>Feilding</item>
+        <item>Ashhurst</item>
+        <item>Longburn</item>
+    </string-array>
 </resources>
