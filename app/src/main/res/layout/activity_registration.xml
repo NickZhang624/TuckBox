@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registration"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#32a852">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/joti_one"
+        android:text="TUCK BOX"
+        android:textColor="#FFFFFF"
+        android:textSize="65sp"
+        android:textStyle="bold" />
+
+    title
+    first name
+    last name
+    username
+    password
+    phone number
+    email
+    area
+    delivery address
+    more delivery address
+    credit card number(16 digit numbers)
+    expired date
+    credit card numbers
+    expired date
+
+</LinearLayout>
