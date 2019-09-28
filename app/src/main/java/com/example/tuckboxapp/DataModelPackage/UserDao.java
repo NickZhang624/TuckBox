@@ -11,10 +11,10 @@ import java.util.List;
 
 @Dao
 public interface UserDao {
-    @Query("select * from Users")
+    @Query("select * from userstable")
     List<User> readAllUers();
 
-    @Query("select * from Users where `User name` like :uName")
+    @Query("select * from userstable where `User_name` like :uName")
     List<User> searchUserByUserName(String uName);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -16,7 +16,7 @@ public abstract class UserDatabase extends RoomDatabase {
         if(myDB == null){
             myDB = Room.databaseBuilder(
                     context.getApplicationContext(),UserDatabase.class,
-                    "UserDatabase1")
+                    "UserDatabase2")
                     .build();
         }
         return myDB;
