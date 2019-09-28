@@ -76,6 +76,9 @@ public class Registration extends AppCompatActivity {
             user.setMobileNumber(etMobile.getText().toString());
             user.setEmail(etEmail.getText().toString());
             user.setDeliveryAddress(etAddress.getText().toString());
+
+            String str = etCardNumber.getText().toString();
+            if ()
             user.setCreditNumber(etCardNumber.getText().toString());
             user.setExpiredDate(etExpiredDate.getText().toString());
 
@@ -98,10 +101,10 @@ public class Registration extends AppCompatActivity {
             super.onPostExecute(aVoid);
             if(insertionResult == -1){
                 Toast.makeText(getApplicationContext(),
-                        "Insertion failure.", Toast.LENGTH_LONG).show();
+                        "Error: User registration failed, please try again.", Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(getApplicationContext(),
-                        "Insertion Success. Student ID: " + insertionResult, Toast.LENGTH_LONG).show();
+                        "Create Successful! Please login in using our service", Toast.LENGTH_LONG).show();
                 finishActivity();
             }
         }
