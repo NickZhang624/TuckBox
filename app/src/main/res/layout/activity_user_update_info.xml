@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Registration"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="#32a852">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/joti_one"
+            android:text="TUCK BOX"
+            android:textColor="#FFFFFF"
+            android:textSize="65sp"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Title*"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_margin="10dp"
+                android:textColor="#FFFFFF"/>
+
+            <Spinner
+                android:id="@+id/spinner_reg_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:dropDownWidth="wrap_content"
+                android:entries="@array/Title"
+                android:gravity="center"
+                android:hint="Title"
+                android:textAlignment="center"
+                style="@style/mySpinnerItemStyle"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" First Name*"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+        <EditText
+            android:id="@+id/edit_reg_first_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First Name*"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Last Name*"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+        <EditText
+            android:id="@+id/edit_reg_last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last Name*"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" User Name*"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+        <EditText
+            android:id="@+id/edit_reg_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="User Name*"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" User Password*"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+        <EditText
+            android:id="@+id/edit_reg_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password*"
+            android:inputType="textPassword"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Mobile*"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+        <EditText
+            android:id="@+id/edit_reg_mob_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mobile Number*"
+            android:inputType="phone"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Email"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+        <EditText
+            android:id="@+id/edit_reg_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Delivery Address*"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+        <EditText
+            android:id="@+id/edit_reg_adress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Street number, Street name*"
+            android:inputType="textMultiLine"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Credit Card*"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+        <EditText
+            android:id="@+id/edit_reg_credit_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Credit Card number*"
+            android:inputType="number"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Expired Date*"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+        <EditText
+            android:id="@+id/edit_reg_expired_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Expired Date*"
+            android:inputType="date"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        more delivery address
+        more credit card numbers
+        more expired date
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="20dp">
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Register"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:textSize="15sp"
+                android:textColor="@color/colorAccent"
+                android:background="#FFFFFF"
+                android:onClick="registerClicked"/>
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="Cancel"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="#FFFFFF"
+                android:onClick="registrationCancelButtonClicked"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

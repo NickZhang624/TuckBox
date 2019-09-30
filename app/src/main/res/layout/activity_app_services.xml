@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AppServices">
+    tools:context=".AppServices"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#32a852">
+
+    <ImageButton
+        android:layout_width="218dp"
+        android:layout_height="153dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/placeorder" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="fdgdfgdagad"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="333dp" />
+        android:text="Place your Order"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageButton
+        android:layout_width="218dp"
+        android:layout_height="153dp"
+        android:src="@drawable/updatepic"
+        android:layout_marginTop="30dp"
+        android:onClick="updateUserInforButtonClicked"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update User Information"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="90dp"
+    android:layout_marginRight="80dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Note: Please order by 10.00am for delivery between 11.45am-1.45pm from Monday to Sunday exclude public holiday.
+\n\nDelivery area ONLY available for Palmerston North, Feilding, Ashhurst, and Longburn\n\nPlease ADD credit card into your account before ordering\n\n"
+        android:textStyle="bold|italic"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"/>
+</LinearLayout>
+
+</LinearLayout>
+</ScrollView>
+
