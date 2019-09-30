@@ -1,7 +1,6 @@
 package com.example.tuckboxapp.DataModelPackage;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -11,7 +10,7 @@ import java.util.List;
 
 @Dao
 public interface UserDao {
-    @Query("select * from userstable")
+    @Query("select * from UsersTable")
     List<User> readAllUers();
 
     @Query("select * from userstable where `User_name` like :uName")
@@ -23,6 +22,4 @@ public interface UserDao {
     @Update
     int updateUser(User user);
 
-    @Delete
-    int deleteUser(User user);
 }
