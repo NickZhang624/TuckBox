@@ -9,146 +9,73 @@
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:background="#32a852">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/joti_one"
+        android:text="TUCK BOX"
+        android:textColor="#FFFFFF"
+        android:textSize="65sp"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="50dp">
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:text="Personal Info"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:background="@color/yellow"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="personalInfoButtonClicked"/>
 
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginBottom="15dp"-->
-<!--            android:fontFamily="@font/joti_one"-->
-<!--            android:text="TUCK BOX"-->
-<!--            android:textColor="#FFFFFF"-->
-<!--            android:textSize="65sp"-->
-<!--            android:textStyle="bold" />-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:gravity="center_vertical">-->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text=" Title*"-->
-<!--                android:textSize="15sp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:layout_margin="10dp"-->
-<!--                android:textColor="#FFFFFF"/>-->
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:text="Financial Info"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:background="@color/fen"
+            android:layout_marginBottom="10dp"
+            android:onClick="financialInfoButtonClicked"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="Delivery Info"
+            android:background="@color/blue"
+            android:layout_marginRight="20dp"
+            android:onClick="dliveryInfoButtonClicked"/>
 
-<!--            <Spinner-->
-<!--                android:id="@+id/spinner_up_title"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:dropDownWidth="wrap_content"-->
-<!--                android:entries="@array/Title"-->
-<!--                android:gravity="center"-->
-<!--                android:hint="Title"-->
-<!--                android:textAlignment="center"-->
-<!--                style="@style/mySpinnerItemStyle"/>-->
-<!--        </LinearLayout>-->
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:text="Go Back"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:background="@color/zi"
+            android:onClick="goBackButtonClicked"/>
+    </LinearLayout>
+</LinearLayout>
 
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text=" First Name*"-->
-<!--            android:textSize="15sp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:textColor="#FFFFFF"/>-->
-<!--        <EditText-->
-<!--            android:id="@+id/edit_up_first_name"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="First Name*"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textSize="20sp"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text=" Last Name*"-->
-<!--            android:textSize="15sp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:textColor="#FFFFFF"/>-->
-<!--        <EditText-->
-<!--            android:id="@+id/edit_up_last_name"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="Last Name*"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textSize="20sp"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text=" User Name*"-->
-<!--            android:textSize="15sp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:textColor="#FFFFFF"/>-->
-<!--        <EditText-->
-<!--            android:id="@+id/edit_up_user_name"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="User Name*"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textSize="20sp"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text=" User Password*"-->
-<!--            android:textSize="15sp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:textColor="#FFFFFF"/>-->
-<!--        <EditText-->
-<!--            android:id="@+id/edit_up_password"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="Password*"-->
-<!--            android:inputType="textPassword"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textSize="20sp"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text=" Mobile*"-->
-<!--            android:textSize="15sp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:textColor="#FFFFFF"/>-->
-<!--        <EditText-->
-<!--            android:id="@+id/edit_up_mob_num"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="Mobile Number*"-->
-<!--            android:inputType="phone"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textSize="20sp"/>-->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text=" Email"-->
-<!--            android:textSize="15sp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:textColor="#FFFFFF"/>-->
-<!--        <EditText-->
-<!--            android:id="@+id/edit_up_email"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="Email"-->
-<!--            android:inputType="textEmailAddress"-->
-<!--            android:layout_marginLeft="10dp"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textSize="20sp"/>-->
+
+
 <!--        <TextView-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->
@@ -242,65 +169,5 @@
 <!--                android:onClick="updateCancelButtonClicked"/>-->
 <!--        </LinearLayout>-->
 <!--    </LinearLayout>-->
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/joti_one"
-        android:text="TUCK BOX"
-        android:textColor="#FFFFFF"
-        android:textSize="65sp"
-        android:textStyle="bold" />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="50dp">
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:text="Personal Info"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:background="@color/yellow"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"/>
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:text="Financial Info"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:background="@color/fen"
-            android:layout_marginBottom="10dp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:text="Delivery Info"
-            android:background="@color/blue"
-            android:layout_marginRight="20dp"/>
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:text="Go Back"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:background="@color/zi"
-            android:onClick="goBackButtonClicked"/>
-    </LinearLayout>
-    </LinearLayout>
 

@@ -38,6 +38,21 @@ public class UserUpdateInfo extends Menu {
         startActivity(i);
     }
 
+    public void personalInfoButtonClicked(View view) {
+        Intent a = new Intent(this,PersonalInfoUpdate.class);
+        startActivity(a);
+    }
+
+    public void financialInfoButtonClicked(View view) {
+        Intent c = new Intent(this,FinancialInfoUpdate.class);
+        startActivity(c);
+    }
+
+    public void dliveryInfoButtonClicked(View view) {
+        Intent d = new Intent(this,DeliveryInforUpdate.class);
+        startActivity(d);
+    }
+
 
 //    private void initializeUI() {
 //        etUPTitle=findViewById(R.id.spinner_up_title);
