@@ -12,9 +12,6 @@
         <activity android:name=".Confirmation"></activity>
         <activity android:name=".PlaceOrderNext" />
         <activity android:name=".PlaceOrder" />
-        <activity android:name=".DeliveryInforUpdate" />
-        <activity android:name=".FinancialInfoUpdate" />
-        <activity android:name=".PersonalInfoUpdate" />
         <activity android:name=".Menu" />
         <activity android:name=".UserUpdateInfo" />
         <activity android:name=".AppServices" />
