@@ -29,7 +29,8 @@ public class Menu extends AppCompatActivity {
                 startActivity(i);
                 break;
             case R.id.order:
-                Toast.makeText(this,"ooo",Toast.LENGTH_LONG).show();
+                Intent p = new Intent(this,PlaceOrder.class);
+                startActivity(p);
                 break;
             case R.id.update:
                 Intent up = new Intent(this,UserUpdateInfo.class);

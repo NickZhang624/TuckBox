@@ -22,4 +22,9 @@ public class AppServices extends Menu {
         i.putExtra(MainActivity.USER_OBJECT,user);
         startActivity(i);
     }
+
+    public void placeOrderButtonClicked(View view) {
+        Intent i = new Intent(this,PlaceOrder.class);
+        startActivity(i);
+    }
 }

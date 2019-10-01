@@ -10,4 +10,24 @@
         <item>Ashhurst</item>
         <item>Longburn</item>
     </string-array>
+    <string-array name="Salad">
+        <item>None</item>
+        <item>Ranch</item>
+        <item>Vinaigrette</item>
+    </string-array>
+    <string-array name="Korma">
+        <item>Mild</item>
+        <item>Med </item>
+        <item>Hot</item>
+    </string-array>
+    <string-array name="Sandwich">
+        <item>White</item>
+        <item>Rye</item>
+        <item>Wholemeal</item>
+    </string-array>
+    <string-array name="Noodle">
+        <item>No Chilli Flakes</item>
+        <item>Regular Chilli Flakes</item>
+        <item>Extra Chilli Flakes</item>
+    </string-array>
 </resources>
