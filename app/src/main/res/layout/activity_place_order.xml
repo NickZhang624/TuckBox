@@ -237,7 +237,8 @@
             android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/colorPrimaryDark"
-            android:background="#FFFFFF" />
+            android:background="#FFFFFF"
+            android:onClick="placeOrderNextButtonClicked"/>
     </LinearLayout>
 
 </LinearLayout>

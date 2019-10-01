@@ -18,4 +18,9 @@ public class PlaceOrder extends Menu {
         Intent i = new Intent(this,AppServices.class);
         startActivity(i);
     }
+
+    public void placeOrderNextButtonClicked(View view) {
+        Intent i = new Intent(this,PlaceOrderNext.class);
+        startActivity(i);
+    }
 }

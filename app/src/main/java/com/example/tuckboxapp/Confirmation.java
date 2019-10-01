@@ -6,21 +6,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class PlaceOrderNext extends Menu {
+public class Confirmation extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_place_order_next);
+        setContentView(R.layout.activity_confirmation);
     }
 
-    public void orderNextCancelButtonClicked(View view) {
+    public void confirmCancelButtonClicked(View view) {
         Intent i = new Intent(this,AppServices.class);
         startActivity(i);
     }
 
-    public void orderConfirmButtonClicked(View view) {
-        Intent i = new Intent(this,Confirmation.class);
+    public void finalConfirmButtonClicked(View view) {
+        Intent i = new Intent(this,AppServices.class);
         startActivity(i);
     }
 }

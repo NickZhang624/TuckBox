@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PlaceOrderNext"></activity>
+        <activity android:name=".Confirmation"></activity>
+        <activity android:name=".PlaceOrderNext" />
         <activity android:name=".PlaceOrder" />
         <activity android:name=".DeliveryInforUpdate" />
         <activity android:name=".FinancialInfoUpdate" />
