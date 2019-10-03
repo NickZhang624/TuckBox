@@ -13,7 +13,7 @@ public interface UserDao {
     @Query("select * from UsersTable")
     List<User> readAllUers();
 
-    @Query("select * from userstable where `User_name` like :uName")
+    @Query("select * from UsersTable where `User_name` like :uName")
     List<User> searchUserByUserName(String uName);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -21,5 +21,8 @@ public interface UserDao {
 
     @Update
     int updateUser(User user);
+
+    @Update
+    int deleteUser(User user);
 
 }

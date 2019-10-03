@@ -1,6 +1,8 @@
 package com.example.tuckboxapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -21,6 +23,7 @@ public class UserUpdateInfo extends Menu {
 
     int updateResult;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +39,7 @@ public class UserUpdateInfo extends Menu {
 
 
     private void initializeUI() {
-        etUPTitle=findViewById(R.id.spinner_up_title);
+//        etUPTitle=findViewById(R.id.spinner_up_title);
         etUPFname=findViewById(R.id.edit_up_first_name);
         etUPLname=findViewById(R.id.edit_up_last_name);
         etUPUname=findViewById(R.id.edit_up_user_name);
@@ -47,21 +50,31 @@ public class UserUpdateInfo extends Menu {
         etUPCard=findViewById(R.id.edit_up_credit_card);
         etUPExpiredDate=findViewById(R.id.edit_up_expired_date);
 
+        etUPFname.setText(user.getFirstName());
+        etUPLname.setText(user.getLastName());
+        etUPUname.setText(user.getUserName());
+        etUPPassword.setText(user.getPassword());
+        etUPMobile.setText(user.getMobileNumber());
+        etUPEmail.setText(user.getEmail());
+        etUPDeliveryAddress.setText(user.getDeliveryAddress());
+        etUPCard.setText(user.getCreditNumber());
+        etUPExpiredDate.setText(user.getExpiredDate());
+
     }
     private void setUIBehaviors() {
-        etUPTitle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(!etUPTitle.getSelectedItem().toString().equals(user.getTitle())){
-                    user.setTitle(etUPTitle.getSelectedItem().toString());
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+//        etUPTitle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                if(!etUPTitle.getSelectedItem().toString().equals(user.getTitle())){
+//                    user.setTitle(etUPTitle.getSelectedItem().toString());
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
         etUPFname.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
