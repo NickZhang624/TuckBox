@@ -33,7 +33,7 @@ public class Menu extends AppCompatActivity {
                 startActivity(p);
                 break;
             case R.id.update:
-                Intent up = new Intent(this,UserUpdateInfo.class);
+                Intent up = new Intent(this,UserListView.class);
                 startActivity(up);
                 break;
         }

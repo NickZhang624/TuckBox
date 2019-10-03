@@ -54,18 +54,20 @@
         android:layout_margin="15dp"/>
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="136dp"
-            android:layout_height="109dp"
-            android:src="@drawable/salad"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/salad" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
         <Spinner
             android:id="@+id/spinner_salad"
             style="@style/mySpinnerItemStyle"
@@ -74,74 +76,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:dropDownWidth="wrap_content"
-            android:entries="@array/Salad"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="136dp"
-            android:layout_height="109dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/korma"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-        <Spinner
-            android:id="@+id/spinner_korma"
-            style="@style/mySpinnerItemStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:dropDownWidth="wrap_content"
-            android:entries="@array/Korma"
-            app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toTopOf="@+id/imageView4" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="136dp"
-            android:layout_height="109dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/sandwich"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-
-        <Spinner
-            android:id="@+id/spinner_sandwich"
-            style="@style/mySpinnerItemStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:dropDownWidth="wrap_content"
-            android:entries="@array/Sandwich"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="@+id/imageView3" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="136dp"
-            android:layout_height="109dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/noodle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-        <Spinner
-            android:id="@+id/spinner_noodle"
-            style="@style/mySpinnerItemStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:dropDownWidth="wrap_content"
-            android:entries="@array/Noodle"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2" />
-
+            android:entries="@array/Salad" />
         <Button
             android:id="@+id/addButton1"
             android:layout_width="70dp"
@@ -149,45 +84,125 @@
             android:layout_marginStart="26dp"
             android:layout_marginBottom="16dp"
             android:background="@color/yellow"
-            android:text="ADD"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintStart_toEndOf="@+id/imageView" />
+            android:text="ADD" />
+        </LinearLayout>
+    </LinearLayout>
 
-        <Button
-            android:id="@+id/addButton2"
-            android:layout_width="70dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="26dp"
-            android:layout_marginBottom="24dp"
-            android:background="@color/yellow"
-            android:text="ADD"
-            app:layout_constraintBottom_toTopOf="@+id/imageView3"
-            app:layout_constraintStart_toEndOf="@+id/imageView4" />
 
-        <Button
-            android:id="@+id/addButton3"
-            android:layout_width="70dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="26dp"
-            android:layout_marginBottom="16dp"
-            android:background="@color/yellow"
-            android:text="ADD"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-            app:layout_constraintStart_toEndOf="@+id/imageView3" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
 
-        <Button
-            android:id="@+id/addButton4"
-            android:layout_width="70dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="26dp"
-            android:layout_marginBottom="16dp"
-            android:background="@color/yellow"
-            android:text="ADD"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-            app:layout_constraintStart_toEndOf="@+id/imageView2" />
+        <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/korma" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Spinner
+                android:id="@+id/spinner_korma"
+                style="@style/mySpinnerItemStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:dropDownWidth="wrap_content"
+                android:entries="@array/Korma" />
 
+            <Button
+                android:id="@+id/addButton2"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/yellow"
+                android:text="ADD" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/sandwich" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Spinner
+                android:id="@+id/spinner_sandwich"
+                style="@style/mySpinnerItemStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:dropDownWidth="wrap_content"
+                android:entries="@array/Sandwich" />
+
+            <Button
+                android:id="@+id/addButton3"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/yellow"
+                android:text="ADD" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/noodle" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Spinner
+                android:id="@+id/spinner_noodle"
+                style="@style/mySpinnerItemStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:dropDownWidth="wrap_content"
+                android:entries="@array/Noodle" />
+
+            <Button
+                android:id="@+id/addButton4"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/yellow"
+                android:text="ADD" />
+        </LinearLayout>
+    </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

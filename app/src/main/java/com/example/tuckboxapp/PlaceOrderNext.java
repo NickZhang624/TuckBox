@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class PlaceOrderNext extends Menu {
+public class PlaceOrderNext extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
