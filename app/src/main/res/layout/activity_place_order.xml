@@ -28,7 +28,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" Selection of Delivery Region*"
+            android:text=" Select Delivery Region*"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_margin="10dp"
@@ -54,172 +54,282 @@
         android:layout_margin="15dp"/>
 
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imageView1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/salad"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/salad" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_marginStart="16dp"
+            android:text="Green Salad Lunch"
+            android:textSize="19sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toEndOf="@+id/imageView1"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Spinner
             android:id="@+id/spinner_salad"
             style="@style/mySpinnerItemStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
             android:dropDownWidth="wrap_content"
-            android:entries="@array/Salad" />
+            android:entries="@array/Salad"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView1"
+            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
         <Button
             android:id="@+id/addButton1"
-            android:layout_width="70dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="26dp"
-            android:layout_marginBottom="16dp"
-            android:background="@color/yellow"
-            android:text="ADD" />
-        </LinearLayout>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp" >
-
-        <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:src="@drawable/korma" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <Spinner
-                android:id="@+id/spinner_korma"
-                style="@style/mySpinnerItemStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:dropDownWidth="wrap_content"
-                android:entries="@array/Korma" />
-
-            <Button
-                android:id="@+id/addButton2"
-                android:layout_width="70dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="26dp"
-                android:layout_marginBottom="16dp"
-                android:background="@color/yellow"
-                android:text="ADD" />
-        </LinearLayout>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp" >
-
-        <ImageView
-            android:id="@+id/imageView3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/sandwich" />
+            android:layout_height="match_parent"
+            android:background="@color/yellow"
+            android:text="ADD"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <Spinner
-                android:id="@+id/spinner_sandwich"
-                style="@style/mySpinnerItemStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:dropDownWidth="wrap_content"
-                android:entries="@array/Sandwich" />
-
-            <Button
-                android:id="@+id/addButton3"
-                android:layout_width="70dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="26dp"
-                android:layout_marginBottom="16dp"
-                android:background="@color/yellow"
-                android:text="ADD" />
-        </LinearLayout>
-    </LinearLayout>
-
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp" >
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/imageView2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/korma"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/noodle" />
+            android:layout_marginStart="16dp"
+            android:text="Lamb Korma"
+            android:textSize="19sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Spinner
+            android:id="@+id/spinner_korma"
+            style="@style/mySpinnerItemStyle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <Spinner
-                android:id="@+id/spinner_noodle"
-                style="@style/mySpinnerItemStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:dropDownWidth="wrap_content"
-                android:entries="@array/Noodle" />
+            android:layout_marginStart="16dp"
+            android:dropDownWidth="wrap_content"
+            android:entries="@array/Korma"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-            <Button
-                android:id="@+id/addButton4"
-                android:layout_width="70dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="26dp"
-                android:layout_marginBottom="16dp"
-                android:background="@color/yellow"
-                android:text="ADD" />
-        </LinearLayout>
-    </LinearLayout>
+        <Button
+            android:id="@+id/addButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/yellow"
+            android:text="ADD"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/sandwich"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Open Chicken Sandwich"
+            android:textSize="19sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinner_sandwich"
+            style="@style/mySpinnerItemStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:dropDownWidth="wrap_content"
+            android:entries="@array/Sandwich"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <Button
+            android:id="@+id/addButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/yellow"
+            android:text="ADD"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/noodle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Beef Noodle Salad"
+            android:textSize="19sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinner_noodle"
+            style="@style/mySpinnerItemStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:dropDownWidth="wrap_content"
+            android:entries="@array/Noodle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <Button
+            android:id="@+id/addButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/yellow"
+            android:text="ADD"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ordered item:"
+        android:text="Customer Note:"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:layout_margin="15dp"/>
 
+    <EditText
+        android:id="@+id/note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:hint="Customer Note:"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ordered item:"
+        android:text=" Payment*"
         android:textSize="20sp"
-        android:textStyle="bold|italic"
-        android:textColor="#FFFFFF"
-        android:layout_margin="15dp"/>
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:textColor="#FFFFFF"/>
+    <TextView
+        android:id="@+id/order_show_credit_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="6dp"
+        android:textStyle="bold|italic"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Select Delivery Time*"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+        <Spinner
+            android:id="@+id/spinner_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dropDownWidth="wrap_content"
+            android:entries="@array/time"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="6dp"
+            style="@style/mySpinnerItemStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Delivery Address*"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+        <TextView
+            android:id="@+id/order_show_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="6dp"
+            android:textStyle="bold|italic"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -248,13 +358,12 @@
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:text="Next"
+            android:text="Order"
             android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/colorPrimaryDark"
             android:background="#FFFFFF"
             android:onClick="placeOrderNextButtonClicked"/>
     </LinearLayout>
-
 </LinearLayout>
 </ScrollView>

@@ -1,6 +1,7 @@
 package com.example.tuckboxapp.DataModelPackage;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -24,5 +25,18 @@ public interface UserDao {
 
     @Update
     int deleteUser(User user);
+
+
+    @Query("select * from OrderedLunchTable")
+    List<OrderedLuch> readAllOrderedLunch();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long insertOrderedLunch(OrderedLuch orderedLuch);
+
+    @Update
+    int updateOrderedLunch(OrderedLuch orderedLuch);
+
+    @Delete
+    int deleteOrderedLunch(OrderedLuch orderedLuch);
 
 }

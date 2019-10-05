@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Confirmation extends AppCompatActivity {
+public class Confirmation extends Menu {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
