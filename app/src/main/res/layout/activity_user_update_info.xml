@@ -67,45 +67,30 @@
             android:background="#FFFFFF"
             android:onClick="updateCancelButtonClicked"/>
     </LinearLayout>
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:gravity="center_vertical">-->
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text=" Title*"-->
-<!--            android:textSize="15sp"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:textColor="#FFFFFF"/>-->
-
-<!--        <Spinner-->
-<!--            android:id="@+id/spinner_up_title"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:dropDownWidth="wrap_content"-->
-<!--            android:entries="@array/Title"-->
-<!--            android:gravity="center"-->
-<!--            android:hint="Title"-->
-<!--            android:textAlignment="center"-->
-<!--            style="@style/mySpinnerItemStyle"/>-->
-<!--    </LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical">
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Student ID"
+            android:text=" Title*"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_margin="10dp"/>
-        <EditText
-            android:id="@+id/et_id"
-            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+
+        <Spinner
+            android:id="@+id/spinner_up_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Student ID"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:enabled="false"/>
+            android:dropDownWidth="wrap_content"
+            android:entries="@array/Title"
+            android:gravity="center"
+            android:hint="Title"
+            android:textAlignment="center"
+            style="@style/mySpinnerItemStyle"/>
+    </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

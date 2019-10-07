@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".UserListView"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#32a852">
 
     <TextView
         android:id="@+id/textView"
@@ -17,16 +18,17 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="20dp"
-        android:text="Student Admin Activity"
-        android:textColor="@color/colorPrimary"
+        android:text="User Information"
+        android:textColor="#ffffff"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textAlignment="center" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/user_list_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         />
+
 
 </LinearLayout>

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-public class UserListView extends AppCompatActivity {
+public class UserListView extends Menu {
 
     RecyclerView studentList;
     @Override

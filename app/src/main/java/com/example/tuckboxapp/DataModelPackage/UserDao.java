@@ -23,7 +23,7 @@ public interface UserDao {
     @Update
     int updateUser(User user);
 
-    @Update
+    @Delete
     int deleteUser(User user);
 
 

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -47,6 +49,7 @@ public class Registration extends AppCompatActivity {
     }
 
     public void registerClicked(View view) {
+
         if(etFName.getText().toString().trim().isEmpty()){
             Toast.makeText(this, "First Name is required", Toast.LENGTH_LONG).show();
         } else if (etLName.getText().toString().trim().isEmpty()){
@@ -57,8 +60,6 @@ public class Registration extends AppCompatActivity {
             Toast.makeText(this, "Password is required", Toast.LENGTH_LONG).show();
         } else if(etMobile.getText().toString().trim().isEmpty()){
             Toast.makeText(this, "Mobile Number is required", Toast.LENGTH_LONG).show();
-//        } else if(etEmail.getText().toString().trim().isEmpty()){
-//            Toast.makeText(this, "Email is required", Toast.LENGTH_LONG).show();
         }else if(etAddress.getText().toString().trim().isEmpty()){
             Toast.makeText(this, "Address is required", Toast.LENGTH_LONG).show();
         }else if(etCardNumber.getText().toString().trim().isEmpty()){
@@ -76,9 +77,7 @@ public class Registration extends AppCompatActivity {
             user.setMobileNumber(etMobile.getText().toString());
             user.setEmail(etEmail.getText().toString());
             user.setDeliveryAddress(etAddress.getText().toString());
-
-            String str = etCardNumber.getText().toString();
-//            if ()
+            user.setCreditNumber(etCardNumber.getText().toString());
             user.setCreditNumber(etCardNumber.getText().toString());
             user.setExpiredDate(etExpiredDate.getText().toString());
 

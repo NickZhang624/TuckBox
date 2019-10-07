@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.example.tuckboxapp.DataModelPackage.User;
 
-public class AppServices extends AppCompatActivity {
+public class AppServices extends Menu {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
