@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -230,7 +232,24 @@ public class UserUpdateInfo extends AppCompatActivity {
 
 
     public void deleteButtonClicked(View view) {
-        new DeleteUser().execute(user);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete User");
+        builder.setMessage("Are you want to delete account ?");
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                new DeleteUser().execute(user);}
+            });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) { }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
     }
 
     private class DeleteUser extends AsyncTask<User,Void,Void> {
