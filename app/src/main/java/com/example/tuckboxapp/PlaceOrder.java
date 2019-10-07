@@ -9,22 +9,25 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class PlaceOrder extends Menu {
+import com.example.tuckboxapp.DataModelPackage.User;
 
+public class PlaceOrder extends Menu {
+    User user;
     long insertionResult;
     Spinner spinnerRegion, spinnerTime;
     EditText etNote;
-    TextView etPayment, etAddress;
+    TextView evPayment, evAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_order);
+        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
 
         insertionResult = -1;
         etNote =findViewById(R.id.note);
-        etPayment =findViewById(R.id.order_show_credit_card);
-        etAddress =findViewById(R.id.order_show_address);
+        evPayment =findViewById(R.id.order_show_credit_card);
+        evAddress =findViewById(R.id.order_show_address);
         spinnerRegion =findViewById(R.id.spinner_order_region);
         spinnerTime = findViewById(R.id.spinner_time);
     }
