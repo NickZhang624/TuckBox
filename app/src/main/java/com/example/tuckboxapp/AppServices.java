@@ -9,9 +9,7 @@ import android.view.View;
 
 import com.example.tuckboxapp.DataModelPackage.User;
 
-public class AppServices extends Menu {
-    User user;
-    RecyclerView recyclerView;
+public class AppServices extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

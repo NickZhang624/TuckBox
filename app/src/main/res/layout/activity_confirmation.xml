@@ -76,7 +76,7 @@
             android:textStyle="bold"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorPrimaryDark"
             android:background="#FFFFFF"
             android:onClick="confirmCancelButtonClicked"/>
         <Button
@@ -90,7 +90,7 @@
             android:text="Confirm order"
             android:textStyle="bold"
             android:textSize="15sp"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorAccent"
             android:background="#FFFFFF"
             android:onClick="finalConfirmButtonClicked"/>
     </LinearLayout>

@@ -15,13 +15,13 @@ import android.widget.Toast;
 
 import com.example.tuckboxapp.DataModelPackage.User;
 
-public class UserUpdateInfo extends Menu {
+public class UserUpdateInfo extends AppCompatActivity {
     User user;
     EditText etUPFname,etUPLname,etUPUname,etUPPassword,etUPMobile,etUPEmail,
-            etUPDeliveryAddress,etUPCard,etUPExpiredDate;
+            etUPDeliveryAddress,etUPCard,etUPExpiredDate,etID;
     Spinner etUPTitle;
 
-    int updateResult;
+    int updateResult,deleteResult;
 
 
     @Override
@@ -31,15 +31,10 @@ public class UserUpdateInfo extends Menu {
 
         user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
         updateResult = -1;
+        deleteResult = -1;
 
-        initializeUI();
-        setUIBehaviors();
-    }
-
-
-
-    private void initializeUI() {
-//        etUPTitle=findViewById(R.id.spinner_up_title);
+        //etUPTitle=findViewById(R.id.spinner_up_title);
+        etID= findViewById(R.id.et_id);
         etUPFname=findViewById(R.id.edit_up_first_name);
         etUPLname=findViewById(R.id.edit_up_last_name);
         etUPUname=findViewById(R.id.edit_up_user_name);
@@ -49,6 +44,9 @@ public class UserUpdateInfo extends Menu {
         etUPDeliveryAddress=findViewById(R.id.edit_up_adress);
         etUPCard=findViewById(R.id.edit_up_credit_card);
         etUPExpiredDate=findViewById(R.id.edit_up_expired_date);
+
+        etID.setText(String.valueOf(user.getID()));
+        etID.setEnabled(false);
 
         etUPFname.setText(user.getFirstName());
         etUPLname.setText(user.getLastName());
@@ -60,7 +58,9 @@ public class UserUpdateInfo extends Menu {
         etUPCard.setText(user.getCreditNumber());
         etUPExpiredDate.setText(user.getExpiredDate());
 
+        setUIBehaviors();
     }
+
     private void setUIBehaviors() {
 //        etUPTitle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 //            @Override
@@ -195,13 +195,11 @@ public class UserUpdateInfo extends Menu {
 
     }
 
+
     public void updateCancelButtonClicked(View view) {
         finishActivity();
     }
 
-    private void finishActivity() {
-        finish();
-    }
 
     public void updateButtonClicked(View view) {
         new UpdateUser().execute(user);
@@ -222,10 +220,49 @@ public class UserUpdateInfo extends Menu {
                 Toast.makeText(getApplicationContext(),
                         "Your information has been updated",
                         Toast.LENGTH_LONG).show();
-            } else
+                finishActivity();
+            } else{
                 Toast.makeText(getApplicationContext(),
                         "Please try again or contact us for further requirement",
-                        Toast.LENGTH_LONG).show();
+                        Toast.LENGTH_LONG).show();}
         }
+    }
+
+
+    public void deleteButtonClicked(View view) {
+        new DeleteUser().execute(user);
+    }
+
+    private class DeleteUser extends AsyncTask<User,Void,Void> {
+        @Override
+        protected Void doInBackground(User... users) {
+            deleteResult = MainActivity.userDao.deleteUser(users[0]);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            if(deleteResult == 1){
+                Toast.makeText(getApplicationContext(),
+                        "Student Record has been deleted",
+                        Toast.LENGTH_LONG).show();
+                backToMain();
+            } else{
+                Toast.makeText(getApplicationContext(),
+                        "Student Record has not been deleted",
+                        Toast.LENGTH_LONG).show();}
+        }
+    }
+
+
+    private void finishActivity() {
+        Intent i = new Intent(this,AppServices.class);
+        startActivity(i);
+    }
+    private void backToMain(){
+        finish();
+//        Intent i = new Intent(this,MainActivity.class);
+//        startActivity(i);
     }
 }

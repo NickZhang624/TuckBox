@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {User.class, OrderedLuch.class},version = 2,exportSchema = false)
+@Database(entities = {User.class, OrderedLuch.class},version = 6,exportSchema = false)
 public abstract class UserDatabase extends RoomDatabase {
     private static UserDatabase myDB = null;
 
@@ -16,7 +16,7 @@ public abstract class UserDatabase extends RoomDatabase {
         if(myDB == null){
             myDB = Room.databaseBuilder(
                     context.getApplicationContext(),UserDatabase.class,
-                    "UserDatabase3")
+                    "UserDatabase6")
                     .build();
         }
         return myDB;

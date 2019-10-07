@@ -30,8 +30,6 @@
             android:id="@+id/btn_update"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="5dp"
             android:layout_marginTop="10dp"
             android:text="Update"
             android:textStyle="bold"
@@ -39,13 +37,27 @@
             android:textSize="15sp"
             android:textColor="@color/colorAccent"
             android:background="#FFFFFF"
-            android:onClick="updateButtonClicked"/>
+            android:onClick="updateButtonClicked"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"/>
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Delete"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textColor="@color/cardview_dark_background"
+            android:background="#FFFFFF"
+            android:onClick="deleteButtonClicked"/>
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="Cancel"
@@ -79,7 +91,21 @@
 <!--            android:textAlignment="center"-->
 <!--            style="@style/mySpinnerItemStyle"/>-->
 <!--    </LinearLayout>-->
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Student ID"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"/>
+        <EditText
+            android:id="@+id/et_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Student ID"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:enabled="false"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

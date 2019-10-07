@@ -57,8 +57,8 @@ public class Registration extends AppCompatActivity {
             Toast.makeText(this, "Password is required", Toast.LENGTH_LONG).show();
         } else if(etMobile.getText().toString().trim().isEmpty()){
             Toast.makeText(this, "Mobile Number is required", Toast.LENGTH_LONG).show();
-        } else if(etEmail.getText().toString().trim().isEmpty()){
-            Toast.makeText(this, "Email is required", Toast.LENGTH_LONG).show();
+//        } else if(etEmail.getText().toString().trim().isEmpty()){
+//            Toast.makeText(this, "Email is required", Toast.LENGTH_LONG).show();
         }else if(etAddress.getText().toString().trim().isEmpty()){
             Toast.makeText(this, "Address is required", Toast.LENGTH_LONG).show();
         }else if(etCardNumber.getText().toString().trim().isEmpty()){

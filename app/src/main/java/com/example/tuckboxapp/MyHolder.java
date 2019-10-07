@@ -42,11 +42,6 @@ public class MyHolder extends RecyclerView.ViewHolder {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(
-                        itemView.getContext(),
-                        "Card has been clicked",
-                        Toast.LENGTH_LONG
-                ).show();
                 Intent intent = new Intent(itemView.getContext(), UserUpdateInfo.class);
                 intent.putExtra(MainActivity.USER_OBJECT, user);
                 itemView.getContext().startActivity(intent);
