@@ -27,6 +27,7 @@ public interface UserDao {
     int deleteUser(User user);
 
 
+
     @Query("select * from OrderedLunchTable")
     List<OrderedLuch> readAllOrderedLunch();
 
@@ -38,5 +39,33 @@ public interface UserDao {
 
     @Delete
     int deleteOrderedLunch(OrderedLuch orderedLuch);
+
+
+
+    @Query("select * from CardsTable")
+    List<Cards> readAllCards();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long insertcard(Cards cards);
+
+    @Update
+    int updatecard(Cards cards);
+
+    @Delete
+    int deletecard(Cards cards);
+
+
+
+    @Query("select * from AddressTable")
+    List<Address> readAllAddress();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long insertaddress(Address address);
+
+    @Update
+    int updateaddress(Address address);
+
+    @Delete
+    int deleteaddress(Address address);
 
 }

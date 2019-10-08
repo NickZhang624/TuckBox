@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OrderAddress"></activity>
+        <activity android:name=".AddAddress"></activity>
+        <activity android:name=".AddCard" />
+        <activity android:name=".OrderAddress" />
         <activity android:name=".OrderPayment" />
         <activity android:name=".RegionAndDeliveryTime" />
         <activity android:name=".UserListView" />

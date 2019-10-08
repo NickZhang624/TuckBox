@@ -4,8 +4,21 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "OrderedLunchTable")
-public class OrderedLuch {
+public class OrderedLuch implements Serializable {
+    public OrderedLuch(int OID, String region, String meal, String choice, String note, String payment, String deliveryTime, String address) {
+        this.OID = OID;
+        this.region = region;
+        this.meal = meal;
+        this.choice = choice;
+        this.note = note;
+        this.payment = payment;
+        this.deliveryTime = deliveryTime;
+        this.address = address;
+    }
+
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "Order ID")
     public int OID;
@@ -17,13 +30,12 @@ public class OrderedLuch {
     public String choice;
     @ColumnInfo(name = "Note")
     public String note;
-    @ColumnInfo(name = "New Payment")
-    public String newPayment;
+    @ColumnInfo(name = "Payment")
+    public String payment;
     @ColumnInfo(name = "Delivery Time")
     public String deliveryTime;
-    @ColumnInfo(name = "New Address")
-    public String newAddress;
-
+    @ColumnInfo(name = "Address")
+    public String address;
 
     public int getOID() {
         return OID;
@@ -65,12 +77,12 @@ public class OrderedLuch {
         this.note = note;
     }
 
-    public String getNewPayment() {
-        return newPayment;
+    public String getPayment() {
+        return payment;
     }
 
-    public void setNewPayment(String newPayment) {
-        this.newPayment = newPayment;
+    public void setPayment(String payment) {
+        this.payment = payment;
     }
 
     public String getDeliveryTime() {
@@ -81,22 +93,11 @@ public class OrderedLuch {
         this.deliveryTime = deliveryTime;
     }
 
-    public String getNewAddress() {
-        return newAddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setNewAddress(String newAddress) {
-        this.newAddress = newAddress;
-    }
-
-    public OrderedLuch(int OID, String region, String meal, String choice, String note, String newPayment, String deliveryTime, String newAddress) {
-        this.OID = OID;
-        this.region = region;
-        this.meal = meal;
-        this.choice = choice;
-        this.note = note;
-        this.newPayment = newPayment;
-        this.deliveryTime = deliveryTime;
-        this.newAddress = newAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
