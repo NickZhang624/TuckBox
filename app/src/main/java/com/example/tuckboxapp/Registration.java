@@ -78,7 +78,6 @@ public class Registration extends AppCompatActivity {
             user.setEmail(etEmail.getText().toString());
             user.setDeliveryAddress(etAddress.getText().toString());
             user.setCreditNumber(etCardNumber.getText().toString());
-            user.setCreditNumber(etCardNumber.getText().toString());
             user.setExpiredDate(etExpiredDate.getText().toString());
 
             InsertUser insertUser = new InsertUser();

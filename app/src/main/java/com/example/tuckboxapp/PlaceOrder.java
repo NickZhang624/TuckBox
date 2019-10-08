@@ -49,16 +49,19 @@ public class PlaceOrder extends Menu {
     }
 
     public void orderCancelButtonClicked(View view) {
-        Intent i = new Intent(this,AppServices.class);
+        Intent i = new Intent(this,RegionAndDeliveryTime.class);
         startActivity(i);
     }
 
     public void placeOrderNextButtonClicked(View view) {
         String note =etNote.getText().toString();
+
         Intent a = getIntent();
         String region =a.getStringExtra(EXTRA_REGION);
         String time = a.getStringExtra(EXTRA_TIME);
-        Intent i = new Intent(this,Confirmation.class);
+
+        Intent i = new Intent(this,OrderAddress.class);
+
         i.putExtra(EXTRA_REGION,region);
         i.putExtra(EXTRA_TIME,time);
         i.putExtra(EXTRA_NOTE,note);

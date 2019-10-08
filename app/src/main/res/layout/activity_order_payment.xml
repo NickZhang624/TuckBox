@@ -27,8 +27,8 @@
         android:textStyle="bold"
         android:layout_margin="10dp"
         android:textColor="#FFFFFF"/>
-    <TextView
-        android:id="@+id/order_show_credit_card"
+    <EditText
+        android:id="@+id/order_credit_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"

@@ -37,9 +37,11 @@ public class RegionAndDeliveryTime extends Menu {
     public void placeOrderNextButtonClicked(View view) {
         String region = spinnerRegion.getSelectedItem().toString();
         String time = spinnerTime.getSelectedItem().toString();
+
         Intent i = new Intent(this,PlaceOrder.class);
         i.putExtra(EXTRA_REGION,region);
         i.putExtra(EXTRA_TIME,time);
+
         startActivity(i);
 
     }

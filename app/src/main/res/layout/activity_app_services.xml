@@ -174,7 +174,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
         android:text="Note: Please order by 10.00am for delivery between 11.45am-1.45pm from Monday to Sunday exclude public holiday.
-\n\nDelivery area ONLY available for Palmerston North, Feilding, Ashhurst, and Longburn\n\nPlease ADD credit card into your account before ordering\n\n\nContact Us\nMobile : 09 356 4585\nEmail : info@tuckbox.co.nz\n\n\n"
+\n\nDelivery area ONLY available for Palmerston North, Feilding, Ashhurst, and Longburn\n\nPlease ADD credit card into your account before ordering\n\n\nContact Us\nMobile : 09 356 4585\nEmail : info@tuckbox.co.nz\nAddress : 123 Main Street, Palmerston North ,New Zealand\n\n"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold|italic"/>
