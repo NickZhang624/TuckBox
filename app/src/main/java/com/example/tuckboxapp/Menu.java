@@ -29,7 +29,7 @@ public class Menu extends AppCompatActivity {
                 startActivity(i);
                 break;
             case R.id.order:
-                Intent p = new Intent(this,PlaceOrder.class);
+                Intent p = new Intent(this,RegionAndDeliveryTime.class);
                 startActivity(p);
                 break;
             case R.id.update:

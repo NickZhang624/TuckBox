@@ -199,7 +199,9 @@ public class UserUpdateInfo extends Menu {
 
 
     public void updateCancelButtonClicked(View view) {
-        finishActivity();
+        finish();
+        Intent i = new Intent(this,UserListView.class);
+        startActivity(i);
     }
 
 
