@@ -264,24 +264,25 @@ public class UserUpdateInfo extends Menu {
             super.onPostExecute(aVoid);
             if(deleteResult == 1){
                 Toast.makeText(getApplicationContext(),
-                        "Student Record has been deleted",
+                        "Delete Successfully!",
                         Toast.LENGTH_LONG).show();
                 backToMain();
             } else{
                 Toast.makeText(getApplicationContext(),
-                        "Student Record has not been deleted",
+                        "Please try again or contact us for further requirement",
                         Toast.LENGTH_LONG).show();}
         }
     }
 
 
     private void finishActivity() {
+        finish();
         Intent i = new Intent(this,AppServices.class);
         startActivity(i);
     }
     private void backToMain(){
         finish();
-//        Intent i = new Intent(this,MainActivity.class);
-//        startActivity(i);
+        Intent i = new Intent(this,MainActivity.class);
+        startActivity(i);
     }
 }

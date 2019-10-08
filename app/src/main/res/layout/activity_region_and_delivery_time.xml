@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegionAndDeliveryTime"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#32a852">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/joti_one"
+        android:text="TUCK BOX"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Select Delivery Region*"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+        <Spinner
+            android:id="@+id/spinner_order_region"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dropDownWidth="wrap_content"
+            android:entries="@array/Area"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="6dp"
+            style="@style/mySpinnerItemStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Select Delivery Time*"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+        <Spinner
+            android:id="@+id/spinner_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dropDownWidth="wrap_content"
+            android:entries="@array/time"
+            android:gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="6dp"
+            style="@style/mySpinnerItemStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="20dp">
+        <Button
+            android:id="@+id/btn_order_cancel"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Back"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="#FFFFFF"
+            android:onClick="orderCancelButtonClicked"/>
+        <Button
+            android:id="@+id/btn_next_order"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:text="Next"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/colorAccent"
+            android:background="#FFFFFF"
+            android:onClick="placeOrderNextButtonClicked"/>
+    </LinearLayout>
+
+</LinearLayout>

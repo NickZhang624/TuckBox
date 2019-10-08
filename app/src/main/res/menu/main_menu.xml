@@ -13,7 +13,7 @@
         app:showAsAction="always"/>
     <item
         android:id="@+id/update"
-        android:title="Update User Info"
+        android:title="User Information"
         android:icon="@drawable/ic_person_black_24dp"
-        app:showAsAction="never"/>
+        app:showAsAction="always"/>
 </menu>

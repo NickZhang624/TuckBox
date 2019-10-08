@@ -17,9 +17,9 @@ public class Confirmation extends Menu {
         setContentView(R.layout.activity_confirmation);
 
         Intent i = getIntent();
-        String region =i.getStringExtra(PlaceOrder.EXTRA_REGION);
+        String region =i.getStringExtra(RegionAndDeliveryTime.EXTRA_REGION);
         String note = i.getStringExtra(PlaceOrder.EXTRA_NOTE);
-        String time = i.getStringExtra(PlaceOrder.EXTRA_TIME);
+        String time = i.getStringExtra(RegionAndDeliveryTime.EXTRA_TIME);
 
         tvRgion =findViewById(R.id.con_region);
         tvNote =findViewById(R.id.con_note);
