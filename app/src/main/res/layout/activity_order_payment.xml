@@ -112,7 +112,7 @@
         android:text="Add a new card"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:background="@color/yellow"
+        android:background="@drawable/add_new_card_button"
         android:onClick="addANewCardButtonClicked"/>
 <LinearLayout
     android:layout_width="match_parent"
@@ -194,7 +194,7 @@
             android:layout_weight="1"
             android:textSize="15sp"
             android:textColor="@color/colorPrimaryDark"
-            android:background="#FFFFFF"
+            android:background="@drawable/back_button"
             android:onClick="orderCancelButtonClicked"/>
         <Button
             android:id="@+id/btn_next_order"
@@ -208,7 +208,7 @@
             android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/colorAccent"
-            android:background="#FFFFFF"
+            android:background="@drawable/next_button"
             android:onClick="placeOrderNextButtonClicked"/>
     </LinearLayout>
 

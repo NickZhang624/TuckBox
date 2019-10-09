@@ -261,8 +261,8 @@
             android:textStyle="bold"
             android:layout_weight="1"
             android:textSize="15sp"
-            android:textColor="@color/colorAccent"
-            android:background="#FFFFFF"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/back_button"
             android:onClick="orderCancelButtonClicked"/>
         <Button
             android:id="@+id/btn_next_order"
@@ -275,8 +275,8 @@
             android:text="Next"
             android:textStyle="bold"
             android:textSize="15sp"
-            android:textColor="@color/colorPrimaryDark"
-            android:background="#FFFFFF"
+            android:textColor="@color/colorAccent"
+            android:background="@drawable/next_button"
             android:onClick="placeOrderNextButtonClicked"/>
     </LinearLayout>
 </LinearLayout>
