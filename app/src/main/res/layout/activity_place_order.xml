@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/joti_one"
         android:text="TUCK BOX"
         android:textColor="#FFFFFF"
@@ -226,25 +226,48 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <TextView
+    <Button
+        android:id="@+id/add_a_note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Customer Note:"
-        android:textSize="20sp"
+        android:text="Add a Note"
         android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:layout_margin="15dp"/>
-
+        android:textSize="20sp"
+        android:background="@drawable/add_new_card_button"
+        android:layout_marginTop="10dp"
+        android:onClick="addANewNoteButtonClicked"/>
+<LinearLayout
+    android:id="@+id/linear_note"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:visibility="gone">
     <EditText
         android:id="@+id/note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="14dp"
         android:layout_marginRight="14dp"
-        android:hint="Customer Note:"/>
-
+        android:hint="Customer Note:"
+        android:textColor="#000000"
+        android:textStyle="bold|italic"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp" />
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="Cancel"
+        android:layout_marginBottom="5dp"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        android:background="#212020"
+        android:onClick="cancel_noteButtonClicked"/>
+</LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -38,7 +38,7 @@ public class Confirmation extends Menu {
         tvNote.setText("Customer Notes: " + note);
         tvTime.setText("Delivery Time: " + time);
         tvAddress.setText("Deliver Address: " + address);
-        tvPayment.setText("Payment Way: " + payment);
+        tvPayment.setText("Payment Card: " + payment);
     }
 
     public void confirmCancelButtonClicked(View view) {

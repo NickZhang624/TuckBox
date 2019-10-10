@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -21,7 +22,8 @@ public class PlaceOrder extends Menu {
 
     EditText etNote;
     TextView evPayment, evAddress;
-    Button buttonCancel,buttonNext;
+    Button buttonCancel,buttonNext,buttonAddNote;
+    LinearLayout linearLayout;
 
 
     public static final String EXTRA_NOTE ="EXTRA_NOTE";
@@ -42,7 +44,8 @@ public class PlaceOrder extends Menu {
 
         buttonCancel = findViewById(R.id.btn_order_cancel);
         buttonNext =findViewById(R.id.btn_next_order);
-
+        linearLayout=findViewById(R.id.linear_note);
+        buttonAddNote=findViewById(R.id.add_a_note);
         etNote =findViewById(R.id.note);
 
 
@@ -67,5 +70,16 @@ public class PlaceOrder extends Menu {
         i.putExtra(EXTRA_NOTE,note);
 
         startActivity(i);
+    }
+
+    public void addANewNoteButtonClicked(View view) {
+        linearLayout.setVisibility(View.VISIBLE);
+        buttonAddNote.setVisibility(View.GONE);
+    }
+
+    public void cancel_noteButtonClicked(View view) {
+        buttonAddNote.setVisibility(View.VISIBLE);
+        linearLayout.setVisibility(View.GONE);
+        etNote.setText(null);
     }
 }

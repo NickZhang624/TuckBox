@@ -241,10 +241,24 @@ public class UserUpdateInfo extends Menu {
 
 
     public void updateButtonClicked(View view) {
-        if(etUPCard.getText().toString().trim().isEmpty()){
+        if(etUPFname.getText().toString().trim().isEmpty()){
+            Toast.makeText(this, "First Name is required", Toast.LENGTH_LONG).show();
+        } else if (etUPLname.getText().toString().trim().isEmpty()){
+            Toast.makeText(this, "Last Name is required", Toast.LENGTH_LONG).show();
+        } else if(etUPUname.getText().toString().trim().isEmpty()){
+            Toast.makeText(this, "User Name is required", Toast.LENGTH_LONG).show();
+        } else if(etUPPassword.getText().toString().trim().isEmpty()){
+            Toast.makeText(this, "Password is required", Toast.LENGTH_LONG).show();
+        } else if(etUPMobile.getText().toString().trim().isEmpty()){
+            Toast.makeText(this, "Mobile Number is required", Toast.LENGTH_LONG).show();
+        }else if(etUPDeliveryAddress.getText().toString().trim().isEmpty()){
+            Toast.makeText(this, "Address is required", Toast.LENGTH_LONG).show();
+        }else if(etUPCard.getText().toString().trim().isEmpty()){
             Toast.makeText(this, "Credit Card is required", Toast.LENGTH_LONG).show();
         }else if(etUPCard.getText().toString().length() < 16){
             Toast.makeText(this, "Please enter 16 credit card numbers", Toast.LENGTH_LONG).show();
+        } else if(etUPExpiredDate.getText().toString().trim().isEmpty()){
+            Toast.makeText(this, "Card Expired Date is required", Toast.LENGTH_LONG).show();
         }else {
             new UpdateUser().execute(user);
         }

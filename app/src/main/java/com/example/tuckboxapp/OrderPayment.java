@@ -34,14 +34,13 @@ public class OrderPayment extends Menu {
     long insertionResult;
     TextView tvCard,tvdate,tvNewCard,tvNewCardDate;
     EditText etCard;
-    Button buttonCancel,buttonNext;
+    Button buttonCancel,buttonNext,buttonAddaNewCard;
     LinearLayout linearLayout;
     ConstraintLayout constraintLayout;
     CheckBox cb,cb1;
     DatePickerDialog.OnDateSetListener mDate;
     private static final String TAG = "TAG";
     public static final String EXTRA_CARD ="EXTRA_CARD";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +55,7 @@ public class OrderPayment extends Menu {
         tvNewCard =findViewById(R.id.new_credit_card);
         tvNewCardDate=findViewById(R.id.new_card_date);
 
-
+        buttonAddaNewCard=findViewById(R.id.add_a_new_card);
         linearLayout =findViewById(R.id.payment_linear);
 
         etCard =findViewById(R.id.new_card);
@@ -119,11 +118,15 @@ public class OrderPayment extends Menu {
     }
 
     public void addANewCardButtonClicked(View view) {
+        buttonAddaNewCard.setVisibility(View.GONE);
         linearLayout.setVisibility(View.VISIBLE);
     }
 
     public void cancelPaymentButtonClicked(View view) {
+        etCard.setText(null);
+        tvdate.setText(null);
         linearLayout.setVisibility(View.GONE);
+        buttonAddaNewCard.setVisibility(View.VISIBLE);
     }
 
     public void savePaymentButtonClicked(View view) {
