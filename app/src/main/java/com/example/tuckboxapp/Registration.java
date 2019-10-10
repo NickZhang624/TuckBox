@@ -2,23 +2,34 @@ package com.example.tuckboxapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tuckboxapp.DataModelPackage.User;
 
+import java.util.Calendar;
+
 public class Registration extends AppCompatActivity {
 
     long insertionResult;
-    EditText etFName, etLName, etUName, etPassword, etMobile, etEmail, etAddress, etCardNumber,
-    etExpiredDate;
+    EditText etFName, etLName, etUName, etPassword, etMobile, etEmail, etAddress, etCardNumber;
+
     Spinner spTitle;
+    DatePickerDialog.OnDateSetListener mDate;
+    private static final String TAG = "TAG";
+    TextView etExpiredDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +48,31 @@ public class Registration extends AppCompatActivity {
         etCardNumber= findViewById(R.id.edit_reg_credit_card);
         etExpiredDate= findViewById(R.id.edit_reg_expired_date);
 
+        etExpiredDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dialog = new DatePickerDialog(
+                        Registration.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDate,
+                        year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
 
+        mDate = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month + 1;
+                String date = month + "/" + dayOfMonth + "/" + year;
+                etExpiredDate.setText(date);
+            }
+        };
     }
 
     public void registrationCancelButtonClicked(View view) {
@@ -64,7 +99,9 @@ public class Registration extends AppCompatActivity {
             Toast.makeText(this, "Address is required", Toast.LENGTH_LONG).show();
         }else if(etCardNumber.getText().toString().trim().isEmpty()){
             Toast.makeText(this, "Credit Card is required", Toast.LENGTH_LONG).show();
-        }else if(etExpiredDate.getText().toString().trim().isEmpty()){
+        }else if(etCardNumber.getText().toString().length() < 16){
+            Toast.makeText(this, "Please enter 16 credit card numbers", Toast.LENGTH_LONG).show();
+        } else if(etExpiredDate.getText().toString().trim().isEmpty()){
             Toast.makeText(this, "Card Expired Date is required", Toast.LENGTH_LONG).show();
         } else {
             // we going create a Student object and fill all these info in the object
