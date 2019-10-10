@@ -12,7 +12,7 @@ import static com.example.tuckboxapp.PlaceOrder.EXTRA_NOTE;
 import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_REGION;
 import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_TIME;
 
-public class OrderAddress extends AppCompatActivity {
+public class OrderAddress extends Menu {
     EditText text;
     Button buttonCancel,buttonNext;
 

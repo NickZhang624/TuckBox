@@ -5,26 +5,36 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tuckboxapp.DataModelPackage.User;
 
+import java.util.Calendar;
+
 public class UserUpdateInfo extends Menu {
     User user;
     EditText etUPFname,etUPLname,etUPUname,etUPPassword,etUPMobile,etUPEmail,
-            etUPDeliveryAddress,etUPCard,etUPExpiredDate,etID;
+            etUPDeliveryAddress,etUPCard;
     Spinner etUPTitle;
+    TextView etUPExpiredDate;
 
     int updateResult,deleteResult;
 
+    DatePickerDialog.OnDateSetListener mDate;
+    private static final String TAG = "TAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +71,33 @@ public class UserUpdateInfo extends Menu {
         etUPExpiredDate.setText(user.getExpiredDate());
 
         setUIBehaviors();
+
+        etUPExpiredDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dialog = new DatePickerDialog(
+                        UserUpdateInfo.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDate,
+                        year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+        mDate = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month + 1;
+                String date = month + "/" + dayOfMonth + "/" + year;
+                etUPExpiredDate.setText(date);
+            }
+        };
+
     }
 
     private void setUIBehaviors() {
@@ -174,7 +211,6 @@ public class UserUpdateInfo extends Menu {
                 if(!b){
                     // edit text is leaving the focus of the user
                     if(!etUPCard.getText().toString().equals(user.getCreditNumber())){
-                        // user has changed the info in the input field
                         user.setCreditNumber(etUPCard.getText().toString());
                     }
                 } else
@@ -190,8 +226,7 @@ public class UserUpdateInfo extends Menu {
                         // user has changed the info in the input field
                         user.setExpiredDate(etUPExpiredDate.getText().toString());
                     }
-                } else
-                    etUPExpiredDate.selectAll();
+                }
             }
         });
 
@@ -206,7 +241,14 @@ public class UserUpdateInfo extends Menu {
 
 
     public void updateButtonClicked(View view) {
-        new UpdateUser().execute(user);
+        if(etUPCard.getText().toString().trim().isEmpty()){
+            Toast.makeText(this, "Credit Card is required", Toast.LENGTH_LONG).show();
+        }else if(etUPCard.getText().toString().length() < 16){
+            Toast.makeText(this, "Please enter 16 credit card numbers", Toast.LENGTH_LONG).show();
+        }else {
+            new UpdateUser().execute(user);
+        }
+
     }
 
     private class UpdateUser extends AsyncTask<User,Void,Void> {
