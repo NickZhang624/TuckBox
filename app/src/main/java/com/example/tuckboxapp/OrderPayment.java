@@ -17,6 +17,7 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,7 +38,8 @@ public class OrderPayment extends Menu {
     Button buttonCancel,buttonNext,buttonAddaNewCard;
     LinearLayout linearLayout;
     ConstraintLayout constraintLayout;
-    CheckBox cb,cb1;
+    CheckBox cb,cb1,cb3;
+    Spinner spinner;
     DatePickerDialog.OnDateSetListener mDate;
     private static final String TAG = "TAG";
     public static final String EXTRA_CARD ="EXTRA_CARD";
@@ -47,13 +49,16 @@ public class OrderPayment extends Menu {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_payment);
 
-        cb=findViewById(R.id.checkBox);
-        cb1=findViewById(R.id.checkBox1);
-
         tvCard =findViewById(R.id.order_credit_card);
+        cb=findViewById(R.id.checkBox);
+
+        spinner = findViewById(R.id.spinner_card);
+        cb3=findViewById(R.id.checkBox3);
+
         constraintLayout =findViewById(R.id.new_payment_cons);
         tvNewCard =findViewById(R.id.new_credit_card);
         tvNewCardDate=findViewById(R.id.new_card_date);
+        cb1=findViewById(R.id.checkBox1);
 
         buttonAddaNewCard=findViewById(R.id.add_a_new_card);
         linearLayout =findViewById(R.id.payment_linear);
