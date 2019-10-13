@@ -11,7 +11,11 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.tuckboxapp.DataModelPackage.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_REGION;
 import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_TIME;
@@ -19,12 +23,12 @@ import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_TIME;
 public class PlaceOrder extends Menu {
     User user;
     long insertionResult;
-
     EditText etNote;
-    TextView evPayment, evAddress;
+    TextView evPayment, evAddress,tvordered;
     Button buttonCancel,buttonNext,buttonAddNote;
     LinearLayout linearLayout;
-
+    ElegantNumberButton elegantNumberButton;
+    Spinner spinner1;
 
     public static final String EXTRA_NOTE ="EXTRA_NOTE";
 
@@ -40,13 +44,14 @@ public class PlaceOrder extends Menu {
 //        evPayment =findViewById(R.id.order_show_credit_card);
 //        evAddress =findViewById(R.id.order_show_address);
 
-
-
         buttonCancel = findViewById(R.id.btn_order_cancel);
         buttonNext =findViewById(R.id.btn_next_order);
         linearLayout=findViewById(R.id.linear_note);
         buttonAddNote=findViewById(R.id.add_a_note);
         etNote =findViewById(R.id.note);
+        elegantNumberButton=findViewById(R.id.number_button);
+        tvordered=findViewById(R.id.ordered);
+        spinner1=findViewById(R.id.spinner_salad);
 
 
     }
@@ -81,5 +86,13 @@ public class PlaceOrder extends Menu {
         buttonAddNote.setVisibility(View.VISIBLE);
         linearLayout.setVisibility(View.GONE);
         etNote.setText(null);
+    }
+
+    public void button1ButtonClicked(View view) {
+        String s = spinner1.getSelectedItem().toString();
+        String c = elegantNumberButton.getNumber().trim();
+
+        tvordered.setText("Green Salad Lunch (" + s + ") * " + c );
+
     }
 }
