@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class Confirmation extends Menu {
 
-    TextView tvRgion,tvNote,tvTime,tvAddress,tvPayment;
+    TextView tvRgion,tvNote,tvTime,tvAddress,tvPayment,tvCardDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class Confirmation extends Menu {
         String time = i.getStringExtra(RegionAndDeliveryTime.EXTRA_TIME);
         String address = i.getStringExtra(OrderAddress.EXTRA_ADDRESS);
         String payment = i.getStringExtra(OrderPayment.EXTRA_CARD);
+        String cardDate = i.getStringExtra(OrderPayment.EXTRA_CARDDATE);
 
 
         tvRgion =findViewById(R.id.con_region);
@@ -32,6 +33,7 @@ public class Confirmation extends Menu {
         tvTime =findViewById(R.id.con_time);
         tvAddress =findViewById(R.id.con_address);
         tvPayment = findViewById(R.id.con_payment);
+        tvCardDate =findViewById(R.id.con_card_date);
 
 
         tvRgion.setText("Delivery Region: " + region);
@@ -39,6 +41,7 @@ public class Confirmation extends Menu {
         tvTime.setText("Delivery Time: " + time);
         tvAddress.setText("Deliver Address: " + address);
         tvPayment.setText("Payment Card: " + payment);
+        tvCardDate.setText(cardDate);
     }
 
     public void confirmCancelButtonClicked(View view) {

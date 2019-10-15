@@ -25,7 +25,7 @@ import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_REGION;
 import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_TIME;
 
 public class OrderAddress extends Menu {
-    TextView text,text1;
+    TextView text,text1,tvAsking;
     Button buttonCancel,buttonNext,buttonAddANewAddress;
     CheckBox cb1,cb2,cb3;
     Spinner spinner;
@@ -44,14 +44,16 @@ public class OrderAddress extends Menu {
 
         text =findViewById(R.id.order_address);
         cb1 =findViewById(R.id.checkBox);
+        cb1.setChecked(true);
 
-        spinner=findViewById(R.id.spinner_address);
-        cb2=findViewById(R.id.checkBox1);
+        //spinner=findViewById(R.id.spinner_address);
+        //cb2=findViewById(R.id.checkBox1);
 
         constraintLayout=findViewById(R.id.new_address_cons);
         text1=findViewById(R.id.new_delivery_address);
         cb3=findViewById(R.id.checkBox3);
 
+        tvAsking=findViewById(R.id.asking);
         buttonAddANewAddress=findViewById(R.id.add_a_new_address);
 
         editText=findViewById(R.id.new_address_again);
@@ -60,6 +62,8 @@ public class OrderAddress extends Menu {
 
         buttonCancel = findViewById(R.id.btn_order_cancel);
         buttonNext =findViewById(R.id.btn_next_order);
+
+
     }
 
     public void orderCancelButtonClicked(View view) {
@@ -69,20 +73,34 @@ public class OrderAddress extends Menu {
 
     public void placeOrderNextButtonClicked(View view) {
         String address =text.getText().toString();
+        String address1 = text1.getText().toString();
 
         Intent a = getIntent();
         String region =a.getStringExtra(EXTRA_REGION);
         String time = a.getStringExtra(EXTRA_TIME);
         String note = a.getStringExtra(EXTRA_NOTE);
 
-        Intent i = new Intent(this,OrderPayment.class);
 
-        i.putExtra(EXTRA_REGION,region);
-        i.putExtra(EXTRA_TIME,time);
-        i.putExtra(EXTRA_NOTE,note);
-        i.putExtra(EXTRA_ADDRESS,address);
+        if(cb1.isChecked() && !cb3.isChecked()){
+            Intent i = new Intent(this,OrderPayment.class);
+            i.putExtra(EXTRA_REGION,region);
+            i.putExtra(EXTRA_TIME,time);
+            i.putExtra(EXTRA_NOTE,note);
+            i.putExtra(EXTRA_ADDRESS,address);
+            startActivity(i);
+        }else if(cb3.isChecked() && !cb1.isChecked()){
+            Intent i = new Intent(this,OrderPayment.class);
+            i.putExtra(EXTRA_REGION,region);
+            i.putExtra(EXTRA_TIME,time);
+            i.putExtra(EXTRA_NOTE,note);
+            i.putExtra(EXTRA_ADDRESS,address1);
+            startActivity(i);
+        }else if(cb1.isChecked() && cb1.isChecked()){
+            Toast.makeText(this, "wrong", Toast.LENGTH_LONG).show();
+        }else if( !cb1.isChecked() && !cb3.isChecked()){
+            Toast.makeText(this, "wrong", Toast.LENGTH_LONG).show();
+        }
 
-        startActivity(i);
     }
 
     public void addANewAddressButtonClicked(View view) {
@@ -111,6 +129,9 @@ public class OrderAddress extends Menu {
 
                     Address address = new Address();
                     address.setAddress(editText.getText().toString());
+                    cb3.setChecked(true);
+                    tvAsking.setVisibility(View.GONE);
+                    cb1.setChecked(false);
 
                     InsertAddress insertAddress = new InsertAddress();
                     insertAddress.execute(address);
@@ -162,5 +183,8 @@ public class OrderAddress extends Menu {
         buttonAddANewAddress.setVisibility(View.GONE);
         constraintLayout.setVisibility(View.VISIBLE);
         text1.setText(address);
+        cb3.setChecked(true);
+        tvAsking.setVisibility(View.GONE);
+        cb1.setChecked(false);
     }
 }

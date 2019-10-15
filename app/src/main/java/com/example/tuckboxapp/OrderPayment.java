@@ -33,7 +33,7 @@ import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_TIME;
 public class OrderPayment extends Menu {
 
     long insertionResult;
-    TextView tvCard,tvdate,tvNewCard,tvNewCardDate;
+    TextView tvCard,tvdate,tvNewCard,tvNewCardDate,tvAsking;
     EditText etCard;
     Button buttonCancel,buttonNext,buttonAddaNewCard;
     LinearLayout linearLayout;
@@ -43,6 +43,8 @@ public class OrderPayment extends Menu {
     DatePickerDialog.OnDateSetListener mDate;
     private static final String TAG = "TAG";
     public static final String EXTRA_CARD ="EXTRA_CARD";
+    public static final String EXTRA_CARDDATE ="EXTRA_CARDDATE";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,15 +53,17 @@ public class OrderPayment extends Menu {
 
         tvCard =findViewById(R.id.order_credit_card);
         cb=findViewById(R.id.checkBox);
+        cb.setChecked(true);
 
-        spinner = findViewById(R.id.spinner_card);
-        cb3=findViewById(R.id.checkBox3);
+        //spinner = findViewById(R.id.spinner_card);
+        //cb3=findViewById(R.id.checkBox3);
 
         constraintLayout =findViewById(R.id.new_payment_cons);
         tvNewCard =findViewById(R.id.new_credit_card);
         tvNewCardDate=findViewById(R.id.new_card_date);
         cb1=findViewById(R.id.checkBox1);
 
+        tvAsking=findViewById(R.id.asking);
         buttonAddaNewCard=findViewById(R.id.add_a_new_card);
         linearLayout =findViewById(R.id.payment_linear);
 
@@ -103,7 +107,9 @@ public class OrderPayment extends Menu {
     }
 
     public void placeOrderNextButtonClicked(View view) {
-        String card =tvCard.getText().toString();
+        String card = tvCard.getText().toString();
+        String card1 = tvNewCard.getText().toString();
+        String date1 = tvNewCardDate.getText().toString();
 
         Intent a = getIntent();
         String region =a.getStringExtra(EXTRA_REGION);
@@ -111,15 +117,28 @@ public class OrderPayment extends Menu {
         String note = a.getStringExtra(EXTRA_NOTE);
         String address = a.getStringExtra(EXTRA_ADDRESS);
 
-        Intent i = new Intent(this,Confirmation.class);
-
-        i.putExtra(EXTRA_REGION,region);
-        i.putExtra(EXTRA_TIME,time);
-        i.putExtra(EXTRA_NOTE,note);
-        i.putExtra(EXTRA_ADDRESS,address);
-        i.putExtra(EXTRA_CARD,card);
-
-        startActivity(i);
+        if(cb.isChecked() && !cb1.isChecked()){
+            Intent i = new Intent(this,Confirmation.class);
+            i.putExtra(EXTRA_REGION,region);
+            i.putExtra(EXTRA_TIME,time);
+            i.putExtra(EXTRA_NOTE,note);
+            i.putExtra(EXTRA_ADDRESS,address);
+            i.putExtra(EXTRA_CARD,card);
+            startActivity(i);
+        }else if(cb1.isChecked() && !cb.isChecked()){
+            Intent i = new Intent(this,Confirmation.class);
+            i.putExtra(EXTRA_REGION,region);
+            i.putExtra(EXTRA_TIME,time);
+            i.putExtra(EXTRA_NOTE,note);
+            i.putExtra(EXTRA_ADDRESS,address);
+            i.putExtra(EXTRA_CARD,card1);
+            i.putExtra(EXTRA_CARDDATE,date1);
+            startActivity(i);
+        }else if(cb.isChecked() && cb1.isChecked()){
+            Toast.makeText(this, "wrong", Toast.LENGTH_LONG).show();
+        }else if( !cb.isChecked() && !cb1.isChecked()){
+            Toast.makeText(this, "wrong", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void addANewCardButtonClicked(View view) {
@@ -155,6 +174,9 @@ public class OrderPayment extends Menu {
                     Cards cards = new Cards();
                     cards.setCardNumber(etCard.getText().toString());
                     cards.setExpiredDate(tvdate.getText().toString());
+                    cb1.setChecked(true);
+                    tvAsking.setVisibility(View.GONE);
+                    cb.setChecked(false);
 
                     InsertCards insertCards = new InsertCards();
                     insertCards.execute(cards);
@@ -207,5 +229,8 @@ public class OrderPayment extends Menu {
         constraintLayout.setVisibility(View.VISIBLE);
         tvNewCard.setText(card);
         tvNewCardDate.setText(date);
+        cb1.setChecked(true);
+        tvAsking.setVisibility(View.GONE);
+        cb.setChecked(false);
     }
 }
