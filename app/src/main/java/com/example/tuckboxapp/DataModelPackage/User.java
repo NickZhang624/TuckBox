@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity(tableName = "UsersTable")
 public class User implements Serializable {
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name="ID")
+    @ColumnInfo(name="User ID")
     public int ID;
 
     @ColumnInfo(name = "Title")

@@ -16,9 +16,7 @@ import com.example.tuckboxapp.DataModelPackage.User;
 
 public class MyHolder extends RecyclerView.ViewHolder {
     User user;
-    TextView etName, etTitle,etUName, etPassword, etMobile, etEmail, etAddress, etCardNumber,
-            etExpiredDate;
-    Spinner spTitle;
+    TextView etName, etTitle;
 
     CardView cardView;
     ImageView imageView;
@@ -28,14 +26,6 @@ public class MyHolder extends RecyclerView.ViewHolder {
         etTitle = itemView.findViewById(R.id.user_item_card_title);
         imageView = itemView.findViewById(R.id.user_item_card_list_image);
         etName = itemView.findViewById(R.id.user_item_card_name);
-//        etUName = itemView.findViewById(R.id.user_item_card_list_uname);
-//        etPassword = itemView.findViewById(R.id.edit_up_password);
-//        etMobile = itemView.findViewById(R.id.user_item_card_list_mobile);
-//        etEmail= itemView.findViewById(R.id.edit_up_email);
-//        etAddress=itemView.findViewById(R.id.edit_up_adress);
-//        etCardNumber= itemView.findViewById(R.id.edit_up_credit_card);
-//        etExpiredDate= itemView.findViewById(R.id.edit_up_expired_date);
-
         cardView = itemView.findViewById(R.id.user_item_card);
 
         cardView.setOnClickListener(new View.OnClickListener() {

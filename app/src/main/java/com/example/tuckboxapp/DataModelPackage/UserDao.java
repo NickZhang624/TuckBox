@@ -45,6 +45,9 @@ public interface UserDao {
     @Query("select * from CardsTable")
     List<Cards> readAllCards();
 
+    @Query("select * from CardsTable WHERE User_ID = :id")
+    List<Cards> readCreditCardsByUserID(int id);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertcard(Cards cards);
 
@@ -59,6 +62,9 @@ public interface UserDao {
     @Query("select * from AddressTable")
     List<Address> readAllAddress();
 
+    @Query("select * from AddressTable WHERE User_ID = :id")
+    List<Address> readAddressByUserID(int id);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertaddress(Address address);
 
@@ -68,4 +74,16 @@ public interface UserDao {
     @Delete
     int deleteaddress(Address address);
 
+
+    @Query("select * from OrderedLunchTable")
+    List<OrderedLuch> readAllOrderd();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long insertorderd(Address address);
+
+    @Update
+    int updateordered(Address address);
+
+    @Delete
+    int deleteorderd(Address address);
 }

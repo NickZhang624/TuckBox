@@ -1,8 +1,5 @@
 package com.example.tuckboxapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -12,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
@@ -42,6 +40,7 @@ public class UserUpdateInfo extends Menu {
         setContentView(R.layout.activity_user_update_info);
 
         user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+        Log.d("CUSTOMER", "Customer ID is " + user.getID());
         updateResult = -1;
         deleteResult = -1;
 
@@ -118,9 +117,7 @@ public class UserUpdateInfo extends Menu {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(!b){
-                    // edit text is leaving the focus of the user
                     if(!etUPFname.getText().toString().equals(user.getFirstName())){
-                        // user has changed the info in the input field
                         user.setFirstName(etUPFname.getText().toString());
                     }
                 } else
@@ -131,9 +128,7 @@ public class UserUpdateInfo extends Menu {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(!b){
-                    // edit text is leaving the focus of the user
                     if(!etUPLname.getText().toString().equals(user.getLastName())){
-                        // user has changed the info in the input field
                         user.setLastName(etUPLname.getText().toString());
                     }
                 } else
@@ -144,9 +139,7 @@ public class UserUpdateInfo extends Menu {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(!b){
-                    // edit text is leaving the focus of the user
                     if(!etUPUname.getText().toString().equals(user.getUserName())){
-                        // user has changed the info in the input field
                         user.setUserName(etUPUname.getText().toString());
                     }
                 } else
@@ -157,9 +150,7 @@ public class UserUpdateInfo extends Menu {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(!b){
-                    // edit text is leaving the focus of the user
                     if(!etUPPassword.getText().toString().equals(user.getPassword())){
-                        // user has changed the info in the input field
                         user.setPassword(etUPPassword.getText().toString());
                     }
                 } else
@@ -170,9 +161,7 @@ public class UserUpdateInfo extends Menu {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(!b){
-                    // edit text is leaving the focus of the user
                     if(!etUPMobile.getText().toString().equals(user.getMobileNumber())){
-                        // user has changed the info in the input field
                         user.setMobileNumber(etUPMobile.getText().toString());
                     }
                 } else
@@ -183,9 +172,7 @@ public class UserUpdateInfo extends Menu {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(!b){
-                    // edit text is leaving the focus of the user
                     if(!etUPEmail.getText().toString().equals(user.getEmail())){
-                        // user has changed the info in the input field
                         user.setEmail(etUPEmail.getText().toString());
                     }
                 } else
@@ -196,9 +183,7 @@ public class UserUpdateInfo extends Menu {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(!b){
-                    // edit text is leaving the focus of the user
                     if(!etUPDeliveryAddress.getText().toString().equals(user.getDeliveryAddress())){
-                        // user has changed the info in the input field
                         user.setDeliveryAddress(etUPDeliveryAddress.getText().toString());
                     }
                 } else
@@ -209,7 +194,6 @@ public class UserUpdateInfo extends Menu {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(!b){
-                    // edit text is leaving the focus of the user
                     if(!etUPCard.getText().toString().equals(user.getCreditNumber())){
                         user.setCreditNumber(etUPCard.getText().toString());
                     }
@@ -221,9 +205,7 @@ public class UserUpdateInfo extends Menu {
             @Override
             public void onFocusChange(View view, boolean b) {
                 if(!b){
-                    // edit text is leaving the focus of the user
                     if(!etUPExpiredDate.getText().toString().equals(user.getExpiredDate())){
-                        // user has changed the info in the input field
                         user.setExpiredDate(etUPExpiredDate.getText().toString());
                     }
                 }
@@ -231,7 +213,6 @@ public class UserUpdateInfo extends Menu {
         });
 
     }
-
 
     public void updateCancelButtonClicked(View view) {
         finish();
@@ -280,7 +261,7 @@ public class UserUpdateInfo extends Menu {
                 Toast.makeText(getApplicationContext(),
                         "Your information has been updated",
                         Toast.LENGTH_LONG).show();
-                finishActivity();
+                finish();
             } else{
                 Toast.makeText(getApplicationContext(),
                         "Please try again or contact us for further requirement",
@@ -332,12 +313,6 @@ public class UserUpdateInfo extends Menu {
         }
     }
 
-
-    private void finishActivity() {
-        finish();
-        Intent i = new Intent(this,AppServices.class);
-        startActivity(i);
-    }
     private void backToMain(){
         finish();
         Intent i = new Intent(this,MainActivity.class);

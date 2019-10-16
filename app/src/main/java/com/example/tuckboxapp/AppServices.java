@@ -7,25 +7,32 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.tuckboxapp.DataModelPackage.User;
 
 public class AppServices extends Menu {
+    static User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_services);
+
+        user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+        Log.d("CUSTOMER", "Customer ID is " + user.getID());
     }
 
     public void updateUserInforButtonClicked(View view) {
         Intent i = new Intent(this,UserListView.class);
+        i.putExtra(MainActivity.USER_OBJECT,getIntent().getSerializableExtra(MainActivity.USER_OBJECT));
         startActivity(i);
     }
 
     public void placeOrderButtonClicked(View view) {
         Intent i = new Intent(this,RegionAndDeliveryTime.class);
+        i.putExtra(MainActivity.USER_OBJECT,getIntent().getSerializableExtra(MainActivity.USER_OBJECT));
         startActivity(i);
     }
 

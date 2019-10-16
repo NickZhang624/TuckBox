@@ -8,20 +8,28 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tuckboxapp.DataModelPackage.Cards;
+import com.example.tuckboxapp.DataModelPackage.User;
 
 import java.util.Calendar;
 
 public class AddCard extends Menu {
+    Cards cards;
+    User user;
     long insertionResult;
     EditText etCard;
     TextView etDate;
+    LinearLayout linearLayout;
+    Button buttonAddaNewCard;
     DatePickerDialog.OnDateSetListener mDate;
     private static final String TAG = "TAG";
 
@@ -30,9 +38,14 @@ public class AddCard extends Menu {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_card);
 
+        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+        Log.d("CUSTOMER", "Customer ID is " + user.getID());
+
         insertionResult = -1;
         etCard = findViewById(R.id.new_card);
         etDate = findViewById(R.id.new_expired_date);
+        linearLayout =findViewById(R.id.payment_linear);
+        buttonAddaNewCard=findViewById(R.id.add_a_new_card);
 
         etDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,13 +74,19 @@ public class AddCard extends Menu {
         };
     }
 
-    public void orderCancelButtonClicked(View view) {
-        finish();
-        Intent i = new Intent(this,UserListView.class);
-        startActivity(i);
+    public void addANewCardButtonClicked(View view) {
+        buttonAddaNewCard.setVisibility(View.GONE);
+        linearLayout.setVisibility(View.VISIBLE);
     }
 
-    public void placeOrderNextButtonClicked(View view) {
+    public void cancelNewCardButtonClicked(View view) {
+        etCard.setText(null);
+        etDate.setText(null);
+        linearLayout.setVisibility(View.GONE);
+        buttonAddaNewCard.setVisibility(View.VISIBLE);
+    }
+
+    public void saveNewCardButtonClicked(View view) {
         if(etCard.getText().toString().trim().isEmpty()){
             Toast.makeText(this, "Credit Card is required", Toast.LENGTH_LONG).show();
         }else if(etCard.getText().toString().length() < 16){
@@ -78,11 +97,13 @@ public class AddCard extends Menu {
             Cards cards = new Cards();
             cards.setCardNumber(etCard.getText().toString());
             cards.setExpiredDate(etDate.getText().toString());
+            cards.setID(user.getID());
 
             InsertCards insertCards = new InsertCards();
             insertCards.execute(cards);
         }
     }
+
 
     public class InsertCards extends AsyncTask<Cards,Void,Void>{
 
@@ -101,14 +122,13 @@ public class AddCard extends Menu {
             } else {
                 Toast.makeText(getApplicationContext(),
                         "Add card Successful!", Toast.LENGTH_LONG).show();
-                finishActivity();
+                finish();
             }
         }
     }
 
-    private void finishActivity() {
+    public void orderCancelButtonClicked(View view) {
         finish();
-        Intent i = new Intent(this,AppServices.class);
-        startActivity(i);
     }
+
 }

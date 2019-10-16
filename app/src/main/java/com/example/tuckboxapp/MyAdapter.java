@@ -54,7 +54,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
     private class LoadUserInfo extends AsyncTask<Void,Void,Void> {
         @Override
         protected Void doInBackground(Void... voids) {
-            data = MainActivity.userDao.readAllUers();
+            data = MainActivity.userDao.searchUserByUserName(AppServices.user.getUserName());
             return null;
         }
     }
