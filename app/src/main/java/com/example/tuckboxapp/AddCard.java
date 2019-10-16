@@ -1,6 +1,8 @@
 package com.example.tuckboxapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.tuckboxapp.DataModelPackage.Cards;
 import com.example.tuckboxapp.DataModelPackage.User;
+import com.example.tuckboxapp.DataModelPackage.UserDatabase;
 
 import java.util.Calendar;
 
@@ -32,14 +35,19 @@ public class AddCard extends Menu {
     Button buttonAddaNewCard;
     DatePickerDialog.OnDateSetListener mDate;
     private static final String TAG = "TAG";
+    public static final String CREDITCARD_OBJECT = "CREDITCARD_OBJECT";
+    RecyclerView recyclerView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_card);
+        cards = (Cards)getIntent().getSerializableExtra(AddCard.CREDITCARD_OBJECT) ;
+        user =(User)getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
 
-        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
-        Log.d("CUSTOMER", "Customer ID is " + user.getID());
+        recyclerView1 = findViewById(R.id.credit_card_list_recycler_view);
+        recyclerView1.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView1.setAdapter(new CardAdapter());
 
         insertionResult = -1;
         etCard = findViewById(R.id.new_card);

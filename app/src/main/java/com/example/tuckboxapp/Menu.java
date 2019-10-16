@@ -9,10 +9,11 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.tuckboxapp.DataModelPackage.Cards;
 import com.example.tuckboxapp.DataModelPackage.User;
 
 public class Menu extends AppCompatActivity {
-    static User user;
+    public static User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

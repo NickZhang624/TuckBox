@@ -19,7 +19,7 @@
         android:fontFamily="@font/joti_one"
         android:text="TUCK BOX"
         android:textColor="#FFFFFF"
-        android:textSize="65sp"
+        android:textSize="40sp"
         android:textStyle="bold" />
     <LinearLayout
         android:layout_width="match_parent"

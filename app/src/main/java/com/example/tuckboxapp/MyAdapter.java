@@ -37,13 +37,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
             holder.imageView.setImageResource(R.drawable.female);
         holder.etTitle.setText(holder.user.getTitle() + " ");
         holder.etName.setText(holder.user.getFirstName() + " " + holder.user.getLastName());
-//        holder.etUName.setText(holder.user.getUserName());
-//        holder.etPassword.setText(holder.user.getPassword());
-//        holder.etMobile.setText(holder.user.getMobileNumber());
-//        holder.etEmail.setText(holder.user.getEmail());
-//        holder.etAddress.setText(holder.user.getDeliveryAddress());
-//        holder.etCardNumber.setText(holder.user.getCreditNumber());
-//        holder.etExpiredDate.setText(holder.user.getExpiredDate());
     }
 
     @Override
