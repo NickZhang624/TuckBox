@@ -22,6 +22,7 @@ import com.example.tuckboxapp.DataModelPackage.Cards;
 import com.example.tuckboxapp.DataModelPackage.User;
 
 import static com.example.tuckboxapp.PlaceOrder.EXTRA_NOTE;
+import static com.example.tuckboxapp.PlaceOrder.EXTRA_ORDERED;
 import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_REGION;
 import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_TIME;
 
@@ -43,6 +44,7 @@ public class OrderAddress extends Menu {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_address);
         user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+
         text =findViewById(R.id.order_address);
         cb1 =findViewById(R.id.checkBox);
         cb1.setChecked(true);
@@ -66,6 +68,8 @@ public class OrderAddress extends Menu {
         buttonNext =findViewById(R.id.btn_next_order);
 
 
+        text.setText(user.getDeliveryAddress());
+
     }
 
     public void orderCancelButtonClicked(View view) {
@@ -80,6 +84,7 @@ public class OrderAddress extends Menu {
         String region =a.getStringExtra(EXTRA_REGION);
         String time = a.getStringExtra(EXTRA_TIME);
         String note = a.getStringExtra(EXTRA_NOTE);
+        String order = a.getStringExtra(EXTRA_ORDERED);
 
 
         if(cb1.isChecked() && !cb3.isChecked()){
@@ -87,6 +92,7 @@ public class OrderAddress extends Menu {
             i.putExtra(EXTRA_REGION,region);
             i.putExtra(EXTRA_TIME,time);
             i.putExtra(EXTRA_NOTE,note);
+            i.putExtra(EXTRA_ORDERED,order);
             i.putExtra(EXTRA_ADDRESS,address);
             i.putExtra(MainActivity.USER_OBJECT,user);
             startActivity(i);
@@ -95,6 +101,7 @@ public class OrderAddress extends Menu {
             i.putExtra(EXTRA_REGION,region);
             i.putExtra(EXTRA_TIME,time);
             i.putExtra(EXTRA_NOTE,note);
+            i.putExtra(EXTRA_ORDERED,order);
             i.putExtra(EXTRA_ADDRESS,address1);
             i.putExtra(MainActivity.USER_OBJECT,user);
             startActivity(i);

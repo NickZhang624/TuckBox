@@ -28,6 +28,7 @@ import java.util.Calendar;
 
 import static com.example.tuckboxapp.OrderAddress.EXTRA_ADDRESS;
 import static com.example.tuckboxapp.PlaceOrder.EXTRA_NOTE;
+import static com.example.tuckboxapp.PlaceOrder.EXTRA_ORDERED;
 import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_REGION;
 import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_TIME;
 
@@ -75,7 +76,7 @@ public class OrderPayment extends Menu {
         buttonCancel = findViewById(R.id.btn_order_cancel);
         buttonNext =findViewById(R.id.btn_next_order);
 
-
+        tvCard.setText(user.getCreditNumber());
         tvdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,6 +117,7 @@ public class OrderPayment extends Menu {
         String region =a.getStringExtra(EXTRA_REGION);
         String time = a.getStringExtra(EXTRA_TIME);
         String note = a.getStringExtra(EXTRA_NOTE);
+        String order = a.getStringExtra(EXTRA_ORDERED);
         String address = a.getStringExtra(EXTRA_ADDRESS);
 
         if(cb.isChecked() && !cb1.isChecked()){
@@ -123,6 +125,7 @@ public class OrderPayment extends Menu {
             i.putExtra(EXTRA_REGION,region);
             i.putExtra(EXTRA_TIME,time);
             i.putExtra(EXTRA_NOTE,note);
+            i.putExtra(EXTRA_ORDERED,order);
             i.putExtra(EXTRA_ADDRESS,address);
             i.putExtra(EXTRA_CARD,card);
             i.putExtra(MainActivity.USER_OBJECT,user);
@@ -132,6 +135,7 @@ public class OrderPayment extends Menu {
             i.putExtra(EXTRA_REGION,region);
             i.putExtra(EXTRA_TIME,time);
             i.putExtra(EXTRA_NOTE,note);
+            i.putExtra(EXTRA_ORDERED,order);
             i.putExtra(EXTRA_ADDRESS,address);
             i.putExtra(EXTRA_CARD,card1);
             i.putExtra(EXTRA_CARDDATE,date1);

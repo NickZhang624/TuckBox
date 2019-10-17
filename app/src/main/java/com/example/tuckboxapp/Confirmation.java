@@ -12,9 +12,11 @@ import android.widget.Toast;
 
 import com.example.tuckboxapp.DataModelPackage.User;
 
+import static com.example.tuckboxapp.PlaceOrder.EXTRA_ORDERED;
+
 public class Confirmation extends Menu {
 
-    TextView tvRgion,tvNote,tvTime,tvAddress,tvPayment,tvCardDate;
+    TextView tvRgion,tvNote,tvOrdered,tvTime,tvAddress,tvPayment,tvCardDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +25,9 @@ public class Confirmation extends Menu {
         user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
         Intent i = getIntent();
         String region =i.getStringExtra(RegionAndDeliveryTime.EXTRA_REGION);
-        String note = i.getStringExtra(PlaceOrder.EXTRA_NOTE);
         String time = i.getStringExtra(RegionAndDeliveryTime.EXTRA_TIME);
+        String note = i.getStringExtra(PlaceOrder.EXTRA_NOTE);
+        String order = i.getStringExtra(EXTRA_ORDERED);
         String address = i.getStringExtra(OrderAddress.EXTRA_ADDRESS);
         String payment = i.getStringExtra(OrderPayment.EXTRA_CARD);
         String cardDate = i.getStringExtra(OrderPayment.EXTRA_CARDDATE);
@@ -36,8 +39,10 @@ public class Confirmation extends Menu {
         tvAddress =findViewById(R.id.con_address);
         tvPayment = findViewById(R.id.con_payment);
         tvCardDate =findViewById(R.id.con_card_date);
+        tvOrdered =findViewById(R.id.con_ordered);
 
 
+        tvOrdered.setText("Ordered: \n"+ order);
         tvRgion.setText("Delivery Region: " + region);
         tvNote.setText("Customer Notes: " + note);
         tvTime.setText("Delivery Time: " + time);

@@ -2,6 +2,8 @@ package com.example.tuckboxapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,8 +13,10 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.example.tuckboxapp.DataModelPackage.Address;
 import com.example.tuckboxapp.DataModelPackage.User;
 
 import java.util.ArrayList;
@@ -23,15 +27,15 @@ import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_TIME;
 
 public class PlaceOrder extends Menu {
     User user;
-    long insertionResult;
     EditText etNote;
-    TextView evPayment, evAddress,tvordered;
+    TextView tvordered;
     Button buttonCancel,buttonNext,buttonAddNote;
     LinearLayout linearLayout;
-    ElegantNumberButton elegantNumberButton;
-    Spinner spinner1;
+    ElegantNumberButton elegantNumberButton1,elegantNumberButton2,elegantNumberButton3,elegantNumberButton4;
+    Spinner spinner1,spinner2,spinner3,spinner4;
 
     public static final String EXTRA_NOTE ="EXTRA_NOTE";
+    public static final String EXTRA_ORDERED ="EXTRA_ORDERED";
 
 
     @Override
@@ -40,18 +44,20 @@ public class PlaceOrder extends Menu {
         setContentView(R.layout.activity_place_order);
         user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
 
-//        evPayment =findViewById(R.id.order_show_credit_card);
-//        evAddress =findViewById(R.id.order_show_address);
-
         buttonCancel = findViewById(R.id.btn_order_cancel);
         buttonNext =findViewById(R.id.btn_next_order);
         linearLayout=findViewById(R.id.linear_note);
         buttonAddNote=findViewById(R.id.add_a_note);
         etNote =findViewById(R.id.note);
-        elegantNumberButton=findViewById(R.id.number_button);
+        elegantNumberButton1=findViewById(R.id.number_button);
+        elegantNumberButton2=findViewById(R.id.number_button1);
+        elegantNumberButton3=findViewById(R.id.number_button2);
+        elegantNumberButton4=findViewById(R.id.number_button3);
         tvordered=findViewById(R.id.ordered);
         spinner1=findViewById(R.id.spinner_salad);
-
+        spinner2=findViewById(R.id.spinner_korma);
+        spinner3=findViewById(R.id.spinner_sandwich);
+        spinner4=findViewById(R.id.spinner_noodle);
 
     }
 
@@ -61,7 +67,12 @@ public class PlaceOrder extends Menu {
 
     public void placeOrderNextButtonClicked(View view) {
         String note =etNote.getText().toString();
+        String order = tvordered.getText().toString();
 
+        if(order.isEmpty()){
+            Toast.makeText(getApplicationContext(),
+                    "Please at least order one to continue", Toast.LENGTH_LONG).show();
+        }else {
         Intent a = getIntent();
         String region =a.getStringExtra(EXTRA_REGION);
         String time = a.getStringExtra(EXTRA_TIME);
@@ -71,9 +82,10 @@ public class PlaceOrder extends Menu {
         i.putExtra(EXTRA_REGION,region);
         i.putExtra(EXTRA_TIME,time);
         i.putExtra(EXTRA_NOTE,note);
+        i.putExtra(EXTRA_ORDERED,order);
         i.putExtra(MainActivity.USER_OBJECT,user);
 
-        startActivity(i);
+        startActivity(i);}
     }
 
     public void addANewNoteButtonClicked(View view) {
@@ -89,9 +101,47 @@ public class PlaceOrder extends Menu {
 
     public void button1ButtonClicked(View view) {
         String s = spinner1.getSelectedItem().toString();
-        String c = elegantNumberButton.getNumber().trim();
+        String c = elegantNumberButton1.getNumber().trim();
+        tvordered.append("Green Salad Lunch (" + s + ") * " + c + "\n");
+    }
 
-        tvordered.setText("Green Salad Lunch (" + s + ") * " + c );
+    public void button2ButtonClicked(View view) {
+        String s = spinner2.getSelectedItem().toString();
+        String c = elegantNumberButton2.getNumber().trim();
+        tvordered.append("Lamb Korma (" + s + ") * " + c + "\n");
+    }
+    public void button3ButtonClicked(View view) {
+        String s = spinner3.getSelectedItem().toString();
+        String c = elegantNumberButton3.getNumber().trim();
+        tvordered.append("Open Chicken Sandwich (" + s + ") * " + c + "\n");
+    }
+    public void button4ButtonClicked(View view) {
+        String s = spinner4.getSelectedItem().toString();
+        String c = elegantNumberButton4.getNumber().trim();
+        tvordered.append("Beef Noodle Salad (" + s + ") * " + c + "\n");
+    }
 
+    public void clearButtonClicked(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Clear Ordered Item");
+        builder.setMessage("Are you want to clear ALL ordered item ?");
+
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                tvordered.setText(null);
+                Toast.makeText(getApplicationContext(),
+                        "Ordered item has been cleared", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
