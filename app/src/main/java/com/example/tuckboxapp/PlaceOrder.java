@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,10 +38,8 @@ public class PlaceOrder extends Menu {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_order);
-//        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
-//
-//        insertionResult = -1;
-//
+        user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+
 //        evPayment =findViewById(R.id.order_show_credit_card);
 //        evAddress =findViewById(R.id.order_show_address);
 
@@ -57,8 +56,7 @@ public class PlaceOrder extends Menu {
     }
 
     public void orderCancelButtonClicked(View view) {
-        Intent i = new Intent(this,RegionAndDeliveryTime.class);
-        startActivity(i);
+        finish();
     }
 
     public void placeOrderNextButtonClicked(View view) {
@@ -73,6 +71,7 @@ public class PlaceOrder extends Menu {
         i.putExtra(EXTRA_REGION,region);
         i.putExtra(EXTRA_TIME,time);
         i.putExtra(EXTRA_NOTE,note);
+        i.putExtra(MainActivity.USER_OBJECT,user);
 
         startActivity(i);
     }

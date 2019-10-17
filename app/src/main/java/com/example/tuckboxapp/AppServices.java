@@ -21,7 +21,6 @@ public class AppServices extends Menu {
         setContentView(R.layout.activity_app_services);
 
         user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
-        Log.d("CUSTOMER", "Customer ID is " + user.getID());
     }
 
     public void updateUserInforButtonClicked(View view) {
@@ -50,7 +49,9 @@ public class AppServices extends Menu {
 
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) { }
+            public void onClick(DialogInterface dialog, int which) {
+                user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+            }
         });
 
         AlertDialog alertDialog = builder.create();

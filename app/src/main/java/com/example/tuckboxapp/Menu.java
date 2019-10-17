@@ -19,7 +19,6 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
-        Log.d("CUSTOMER", "Customer ID is " + user.getID());
     }
 
     @Override

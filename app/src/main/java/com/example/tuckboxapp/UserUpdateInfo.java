@@ -40,7 +40,7 @@ public class UserUpdateInfo extends Menu {
         setContentView(R.layout.activity_user_update_info);
 
         user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
-        Log.d("CUSTOMER", "Customer ID is " + user.getID());
+
         updateResult = -1;
         deleteResult = -1;
 

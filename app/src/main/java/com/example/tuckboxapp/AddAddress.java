@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +34,7 @@ public class AddAddress extends Menu {
         setContentView(R.layout.activity_add_address);
         address = (Address) getIntent().getSerializableExtra(AddAddress.ADDRESS_OBJECT) ;
         user =(User)getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+        Log.d("CUSTOMER", "Customer ID is " + user.getID());
 
         recyclerView1 = findViewById(R.id.address_list_recycler_view);
         recyclerView1.setLayoutManager(new LinearLayoutManager(this));

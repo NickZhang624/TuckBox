@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -14,7 +15,7 @@ import com.example.tuckboxapp.DataModelPackage.Address;
 import com.example.tuckboxapp.DataModelPackage.Cards;
 import com.example.tuckboxapp.DataModelPackage.User;
 
-public class AddressEdit extends AppCompatActivity {
+public class AddressEdit extends Menu {
     EditText etaddress,etcode;
     int updateResult,deleteResult;
     User user;

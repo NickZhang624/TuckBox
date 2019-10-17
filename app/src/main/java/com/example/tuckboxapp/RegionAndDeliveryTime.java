@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -23,6 +24,8 @@ public class RegionAndDeliveryTime extends Menu {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_region_and_delivery_time);
 
+        user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+
         buttonCancel = findViewById(R.id.btn_order_cancel);
         buttonNext =findViewById(R.id.btn_next_order);
         spinnerRegion =findViewById(R.id.spinner_order_region);
@@ -30,8 +33,7 @@ public class RegionAndDeliveryTime extends Menu {
     }
 
     public void orderCancelButtonClicked(View view) {
-        Intent a = new Intent(this,AppServices.class);
-        startActivity(a);
+        finish();
     }
 
     public void placeOrderNextButtonClicked(View view) {
@@ -41,6 +43,7 @@ public class RegionAndDeliveryTime extends Menu {
         Intent i = new Intent(this,PlaceOrder.class);
         i.putExtra(EXTRA_REGION,region);
         i.putExtra(EXTRA_TIME,time);
+        i.putExtra(MainActivity.USER_OBJECT,user);
 
         startActivity(i);
 

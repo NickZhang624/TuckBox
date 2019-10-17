@@ -21,7 +21,6 @@ public class UserListView extends Menu {
         setContentView(R.layout.activity_user_list_view);
 
         user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
-        Log.d("CUSTOMER", "Customer ID is " + user.getID());
 
         recyclerView = findViewById(R.id.user_list_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

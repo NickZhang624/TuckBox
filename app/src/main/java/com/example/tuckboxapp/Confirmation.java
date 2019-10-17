@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tuckboxapp.DataModelPackage.User;
+
 public class Confirmation extends Menu {
 
     TextView tvRgion,tvNote,tvTime,tvAddress,tvPayment,tvCardDate;
@@ -18,7 +20,7 @@ public class Confirmation extends Menu {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
-
+        user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
         Intent i = getIntent();
         String region =i.getStringExtra(RegionAndDeliveryTime.EXTRA_REGION);
         String note = i.getStringExtra(PlaceOrder.EXTRA_NOTE);
@@ -67,12 +69,14 @@ public class Confirmation extends Menu {
 
     public void finalConfirmButtonClicked(View view) {
         Intent i = new Intent(this,AppServices.class);
+        i.putExtra(MainActivity.USER_OBJECT,user);
         startActivity(i);
     }
 
     private void cancelOrder(){
         finish();
         Intent i = new Intent(this,AppServices.class);
+        i.putExtra(MainActivity.USER_OBJECT,user);
         startActivity(i);
         Toast.makeText(getApplicationContext(),
                 "Order Cancellation Successfully!",

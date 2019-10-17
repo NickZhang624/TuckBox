@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.tuckboxapp.DataModelPackage.Address;
 import com.example.tuckboxapp.DataModelPackage.Cards;
+import com.example.tuckboxapp.DataModelPackage.User;
 
 import static com.example.tuckboxapp.PlaceOrder.EXTRA_NOTE;
 import static com.example.tuckboxapp.RegionAndDeliveryTime.EXTRA_REGION;
@@ -29,7 +30,7 @@ public class OrderAddress extends Menu {
     Button buttonCancel,buttonNext,buttonAddANewAddress;
     CheckBox cb1,cb2,cb3;
     Spinner spinner;
-    EditText editText;
+    EditText etaddress,etcode;
     LinearLayout linearLayout;
     ConstraintLayout constraintLayout;
     long insertionResult;
@@ -41,7 +42,7 @@ public class OrderAddress extends Menu {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_address);
-
+        user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
         text =findViewById(R.id.order_address);
         cb1 =findViewById(R.id.checkBox);
         cb1.setChecked(true);
@@ -56,7 +57,8 @@ public class OrderAddress extends Menu {
         tvAsking=findViewById(R.id.asking);
         buttonAddANewAddress=findViewById(R.id.add_a_new_address);
 
-        editText=findViewById(R.id.new_address_again);
+        etaddress=findViewById(R.id.new_address_again);
+        etcode=findViewById(R.id.new_postal_code_again);
 
         linearLayout=findViewById(R.id.address_linear);
 
@@ -67,8 +69,7 @@ public class OrderAddress extends Menu {
     }
 
     public void orderCancelButtonClicked(View view) {
-        Intent i = new Intent(this,PlaceOrder.class);
-        startActivity(i);
+        finish();
     }
 
     public void placeOrderNextButtonClicked(View view) {
@@ -87,6 +88,7 @@ public class OrderAddress extends Menu {
             i.putExtra(EXTRA_TIME,time);
             i.putExtra(EXTRA_NOTE,note);
             i.putExtra(EXTRA_ADDRESS,address);
+            i.putExtra(MainActivity.USER_OBJECT,user);
             startActivity(i);
         }else if(cb3.isChecked() && !cb1.isChecked()){
             Intent i = new Intent(this,OrderPayment.class);
@@ -94,6 +96,7 @@ public class OrderAddress extends Menu {
             i.putExtra(EXTRA_TIME,time);
             i.putExtra(EXTRA_NOTE,note);
             i.putExtra(EXTRA_ADDRESS,address1);
+            i.putExtra(MainActivity.USER_OBJECT,user);
             startActivity(i);
         }else if(cb1.isChecked() && cb1.isChecked()){
             Toast.makeText(this, "wrong", Toast.LENGTH_LONG).show();
@@ -109,13 +112,14 @@ public class OrderAddress extends Menu {
     }
 
     public void cancelAddressButtonClicked(View view) {
-        editText.setText(null);
+        etaddress.setText(null);
+        etcode.setText(null);
         linearLayout.setVisibility(View.GONE);
         buttonAddANewAddress.setVisibility(View.VISIBLE);
     }
 
     public void saveAddressButtonClicked(View view) {
-        if(editText.getText().toString().trim().isEmpty()){
+        if(etaddress.getText().toString().trim().isEmpty()){
             Toast.makeText(this, "Delivery address is required", Toast.LENGTH_LONG).show();
         }else {
 
@@ -128,7 +132,9 @@ public class OrderAddress extends Menu {
                 public void onClick(DialogInterface dialog, int which) {
 
                     Address address = new Address();
-                    address.setAddress(editText.getText().toString());
+                    address.setAddress(etaddress.getText().toString());
+                    address.setPostalCode(etcode.getText().toString());
+                    address.setID(user.getID());
                     cb3.setChecked(true);
                     tvAsking.setVisibility(View.GONE);
                     cb1.setChecked(false);
@@ -178,7 +184,7 @@ public class OrderAddress extends Menu {
 
 
     public void getInfo(){
-        String address = editText.getText().toString();
+        String address = etaddress.getText().toString();
         linearLayout.setVisibility(View.GONE);
         buttonAddANewAddress.setVisibility(View.GONE);
         constraintLayout.setVisibility(View.VISIBLE);

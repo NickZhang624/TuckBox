@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tuckboxapp.DataModelPackage.Cards;
+import com.example.tuckboxapp.DataModelPackage.User;
 
 import java.util.Calendar;
 
@@ -50,6 +51,7 @@ public class OrderPayment extends Menu {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_payment);
+        user =(User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
 
         tvCard =findViewById(R.id.order_credit_card);
         cb=findViewById(R.id.checkBox);
@@ -102,8 +104,7 @@ public class OrderPayment extends Menu {
     }
 
     public void orderCancelButtonClicked(View view) {
-        Intent i = new Intent(this,OrderAddress.class);
-        startActivity(i);
+        finish();
     }
 
     public void placeOrderNextButtonClicked(View view) {
@@ -124,6 +125,7 @@ public class OrderPayment extends Menu {
             i.putExtra(EXTRA_NOTE,note);
             i.putExtra(EXTRA_ADDRESS,address);
             i.putExtra(EXTRA_CARD,card);
+            i.putExtra(MainActivity.USER_OBJECT,user);
             startActivity(i);
         }else if(cb1.isChecked() && !cb.isChecked()){
             Intent i = new Intent(this,Confirmation.class);
@@ -133,6 +135,7 @@ public class OrderPayment extends Menu {
             i.putExtra(EXTRA_ADDRESS,address);
             i.putExtra(EXTRA_CARD,card1);
             i.putExtra(EXTRA_CARDDATE,date1);
+            i.putExtra(MainActivity.USER_OBJECT,user);
             startActivity(i);
         }else if(cb.isChecked() && cb1.isChecked()){
             Toast.makeText(this, "wrong", Toast.LENGTH_LONG).show();
@@ -174,6 +177,7 @@ public class OrderPayment extends Menu {
                     Cards cards = new Cards();
                     cards.setCardNumber(etCard.getText().toString());
                     cards.setExpiredDate(tvdate.getText().toString());
+                    cards.setID(user.getID());
                     cb1.setChecked(true);
                     tvAsking.setVisibility(View.GONE);
                     cb.setChecked(false);
@@ -224,11 +228,9 @@ public class OrderPayment extends Menu {
 
     public void getInfo(){
         String card = etCard.getText().toString();
-        String date = tvdate.getText().toString();
         linearLayout.setVisibility(View.GONE);
         constraintLayout.setVisibility(View.VISIBLE);
         tvNewCard.setText(card);
-        tvNewCardDate.setText(date);
         cb1.setChecked(true);
         tvAsking.setVisibility(View.GONE);
         cb.setChecked(false);
