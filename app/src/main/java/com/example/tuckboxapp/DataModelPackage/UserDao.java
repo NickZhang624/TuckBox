@@ -74,16 +74,4 @@ public interface UserDao {
     @Delete
     int deleteaddress(Address address);
 
-
-    @Query("select * from OrderedLunchTable")
-    List<OrderedLuch> readAllOrderd();
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    long insertorderd(Address address);
-
-    @Update
-    int updateordered(Address address);
-
-    @Delete
-    int deleteorderd(Address address);
 }

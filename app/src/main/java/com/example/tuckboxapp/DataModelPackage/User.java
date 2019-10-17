@@ -36,6 +36,9 @@ public class User implements Serializable {
     @ColumnInfo(name = "Delivery address")
     public String deliveryAddress;
 
+    @ColumnInfo(name = "Postal Code")
+    public String postalCode;
+
     @ColumnInfo(name = "Credit Number")
     public String creditNumber;
 
@@ -126,5 +129,13 @@ public class User implements Serializable {
 
     public String getExpiredDate() {
         return expiredDate;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 }

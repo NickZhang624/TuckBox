@@ -24,7 +24,7 @@ import java.util.Calendar;
 public class Registration extends AppCompatActivity {
 
     long insertionResult;
-    EditText etFName, etLName, etUName, etPassword, etMobile, etEmail, etAddress, etCardNumber;
+    EditText etFName, etLName, etUName, etPassword, etMobile, etEmail, etAddress, etCardNumber,etpostalCode;
 
     Spinner spTitle;
     DatePickerDialog.OnDateSetListener mDate;
@@ -45,6 +45,7 @@ public class Registration extends AppCompatActivity {
         etMobile = findViewById(R.id.edit_reg_mob_num);
         etEmail= findViewById(R.id.edit_reg_email);
         etAddress= findViewById(R.id.edit_reg_adress);
+        etpostalCode=findViewById(R.id.edit_reg_postal_code);
         etCardNumber= findViewById(R.id.edit_reg_credit_card);
         etExpiredDate= findViewById(R.id.edit_reg_expired_date);
 
@@ -114,6 +115,7 @@ public class Registration extends AppCompatActivity {
             user.setMobileNumber(etMobile.getText().toString());
             user.setEmail(etEmail.getText().toString());
             user.setDeliveryAddress(etAddress.getText().toString());
+            user.setPostalCode(etpostalCode.getText().toString());
             user.setCreditNumber(etCardNumber.getText().toString());
             user.setExpiredDate(etExpiredDate.getText().toString());
 

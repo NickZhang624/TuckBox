@@ -22,6 +22,9 @@ public class Address implements Serializable {
     @ColumnInfo(name = "Address")
     public String address;
 
+    @ColumnInfo(name = "Postal Code")
+    public String postalCode;
+
     @ColumnInfo(name = "User_ID")
     public int ID;
 
@@ -38,16 +41,20 @@ public class Address implements Serializable {
         return AID;
     }
 
-    public void setAID(int AID) {
-        this.AID = AID;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
 }
