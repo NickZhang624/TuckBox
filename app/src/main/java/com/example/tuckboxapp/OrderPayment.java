@@ -45,8 +45,6 @@ public class OrderPayment extends Menu {
     DatePickerDialog.OnDateSetListener mDate;
     private static final String TAG = "TAG";
     public static final String EXTRA_CARD ="EXTRA_CARD";
-    public static final String EXTRA_CARDDATE ="EXTRA_CARDDATE";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +109,6 @@ public class OrderPayment extends Menu {
     public void placeOrderNextButtonClicked(View view) {
         String card = tvCard.getText().toString();
         String card1 = tvNewCard.getText().toString();
-        String date1 = tvNewCardDate.getText().toString();
 
         Intent a = getIntent();
         String region =a.getStringExtra(EXTRA_REGION);
@@ -138,7 +135,6 @@ public class OrderPayment extends Menu {
             i.putExtra(EXTRA_ORDERED,order);
             i.putExtra(EXTRA_ADDRESS,address);
             i.putExtra(EXTRA_CARD,card1);
-            i.putExtra(EXTRA_CARDDATE,date1);
             i.putExtra(MainActivity.USER_OBJECT,user);
             startActivity(i);
         }else if(cb.isChecked() && cb1.isChecked()){

@@ -26,11 +26,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lunch Menu:"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:layout_margin="15dp"/>
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -279,10 +278,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:onClick="button4ButtonClicked"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <TextView
-        android:id="@+id/ordered"
+    <LinearLayout
+        android:id="@+id/ordered_linear"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:padding="5dp"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/ordered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textStyle="bold|italic"
+            android:textColor="#fa2a1b" />
+    </LinearLayout>
     <Button
         android:id="@+id/add_a_note"
         android:layout_width="match_parent"
@@ -299,7 +312,9 @@
     android:layout_height="wrap_content"
     android:gravity="right"
     android:orientation="vertical"
-    android:background="#ffffff"
+    android:background="@color/yellow"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
     android:visibility="gone">
     <EditText
         android:id="@+id/note"
@@ -328,8 +343,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginBottom="80dp"
+        android:layout_marginTop="50dp">
         <Button
             android:id="@+id/btn_order_cancel"
             android:layout_width="200dp"

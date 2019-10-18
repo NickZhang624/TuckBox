@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_height="match_parent"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Confirmation"
@@ -22,7 +22,7 @@
         android:textSize="65sp"
         android:textStyle="bold"
         android:layout_marginBottom="30dp"/>
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -30,85 +30,223 @@
         android:background="@color/yellow"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+
         <TextView
+            android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ordered Confirmation:\n"
-            android:textColor="#000000"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
             android:textStyle="bold"
-            android:textSize="25sp"/>
-        </LinearLayout>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer Name: "
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/title_con"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mr"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/textView12"
+            app:layout_constraintStart_toEndOf="@+id/textView12" />
+
+        <TextView
+            android:id="@+id/fname_con"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nick"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/title_con"
+            app:layout_constraintStart_toEndOf="@+id/title_con" />
+
+        <TextView
+            android:id="@+id/lname_con"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zhang"
+            android:layout_marginStart="5dp"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/fname_con"
+            app:layout_constraintStart_toEndOf="@+id/fname_con" />
+
+        <TextView
+            android:id="@+id/textView123"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Mobile: "
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_con" />
+
+        <TextView
+            android:id="@+id/con_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="06466151651"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/textView123"
+            app:layout_constraintStart_toEndOf="@+id/textView123" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Ordered : "
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView123" />
+
         <TextView
             android:id="@+id/con_ordered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="open salad"
             android:textColor="#000000"
+            android:textSize="18sp"
             android:textStyle="bold|italic"
-            android:textSize="20sp"
-            android:text="ordered"
-            android:layout_marginBottom="10dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delivery Time: "
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/con_ordered" />
+
         <TextView
             android:id="@+id/con_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="12.00"
             android:textColor="#000000"
+            android:textSize="18sp"
             android:textStyle="bold|italic"
-            android:textSize="20sp"
-            android:text="time"
-            android:layout_marginBottom="10dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
         <TextView
-            android:id="@+id/con_region"
+            android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Delivery Address: "
             android:textColor="#000000"
+            android:textSize="18sp"
             android:textStyle="bold|italic"
-            android:textSize="20sp"
-            android:text="region"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/con_time" />
+
         <TextView
             android:id="@+id/con_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="123 fire rd"
             android:textColor="#000000"
+            android:textSize="18sp"
             android:textStyle="bold|italic"
-            android:textSize="20sp"
-            android:text="address"
-            android:layout_marginBottom="10dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+        <TextView
+            android:id="@+id/con_region"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="palmerston north"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/con_address" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Customer Note: "
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/con_region" />
+
         <TextView
             android:id="@+id/con_note"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Please......"
             android:textColor="#000000"
+            android:textSize="18sp"
             android:textStyle="bold|italic"
-            android:textSize="20sp"
-            android:text="note"
-            android:layout_marginBottom="10dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Payment: "
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/con_note" />
+
         <TextView
             android:id="@+id/con_payment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="4444444444444444444444"
             android:textColor="#000000"
+            android:textSize="18sp"
             android:textStyle="bold|italic"
-            android:textSize="20sp"
-            android:layout_marginBottom="30dp"
-            android:text="payment"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
         <TextView
+            android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:text="Contact Us\nMobile : 09 356 4585\nEmail : info@tuckbox.co.nz\nAddress : 123 Main Street, Palmerston North ,New Zealand"
-            android:layout_marginBottom="10dp"/>
-        <TextView
-            android:id="@+id/con_card_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textStyle="bold|italic"
-            android:textSize="20sp"
-            android:visibility="gone"/>
-    </LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/con_payment" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

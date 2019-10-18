@@ -14,17 +14,6 @@ import java.io.Serializable;
                 childColumns = "User_ID",
                 onDelete = ForeignKey.CASCADE )})
 public class OrderedLuch implements Serializable {
-    public OrderedLuch(int OID, String region, String meal, String choice, String note, String payment, String deliveryTime, String address) {
-        this.OID = OID;
-        this.region = region;
-        this.meal = meal;
-        this.choice = choice;
-        this.note = note;
-        this.payment = payment;
-        this.deliveryTime = deliveryTime;
-        this.address = address;
-    }
-
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "Order ID")
     public int OID;
@@ -32,8 +21,6 @@ public class OrderedLuch implements Serializable {
     public String region;
     @ColumnInfo(name = "Meal")
     public String meal;
-    @ColumnInfo(name = "Choice")
-    public String choice;
     @ColumnInfo(name = "Note")
     public String note;
     @ColumnInfo(name = "Payment")
@@ -78,14 +65,6 @@ public class OrderedLuch implements Serializable {
         this.meal = meal;
     }
 
-    public String getChoice() {
-        return choice;
-    }
-
-    public void setChoice(String choice) {
-        this.choice = choice;
-    }
-
     public String getNote() {
         return note;
     }
@@ -117,4 +96,5 @@ public class OrderedLuch implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
+
 }

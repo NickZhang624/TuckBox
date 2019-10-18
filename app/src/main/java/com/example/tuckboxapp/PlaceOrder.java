@@ -30,7 +30,7 @@ public class PlaceOrder extends Menu {
     EditText etNote;
     TextView tvordered;
     Button buttonCancel,buttonNext,buttonAddNote;
-    LinearLayout linearLayout;
+    LinearLayout linearLayout,linearLayout1;
     ElegantNumberButton elegantNumberButton1,elegantNumberButton2,elegantNumberButton3,elegantNumberButton4;
     Spinner spinner1,spinner2,spinner3,spinner4;
 
@@ -58,6 +58,7 @@ public class PlaceOrder extends Menu {
         spinner2=findViewById(R.id.spinner_korma);
         spinner3=findViewById(R.id.spinner_sandwich);
         spinner4=findViewById(R.id.spinner_noodle);
+        linearLayout1=findViewById(R.id.ordered_linear);
 
     }
 
@@ -100,22 +101,26 @@ public class PlaceOrder extends Menu {
     }
 
     public void button1ButtonClicked(View view) {
+        linearLayout1.setVisibility(View.VISIBLE);
         String s = spinner1.getSelectedItem().toString();
         String c = elegantNumberButton1.getNumber().trim();
         tvordered.append("Green Salad Lunch (" + s + ") * " + c + "\n");
     }
 
     public void button2ButtonClicked(View view) {
+        linearLayout1.setVisibility(View.VISIBLE);
         String s = spinner2.getSelectedItem().toString();
         String c = elegantNumberButton2.getNumber().trim();
         tvordered.append("Lamb Korma (" + s + ") * " + c + "\n");
     }
     public void button3ButtonClicked(View view) {
+        linearLayout1.setVisibility(View.VISIBLE);
         String s = spinner3.getSelectedItem().toString();
         String c = elegantNumberButton3.getNumber().trim();
         tvordered.append("Open Chicken Sandwich (" + s + ") * " + c + "\n");
     }
     public void button4ButtonClicked(View view) {
+        linearLayout1.setVisibility(View.VISIBLE);
         String s = spinner4.getSelectedItem().toString();
         String c = elegantNumberButton4.getNumber().trim();
         tvordered.append("Beef Noodle Salad (" + s + ") * " + c + "\n");
@@ -129,6 +134,7 @@ public class PlaceOrder extends Menu {
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                linearLayout1.setVisibility(View.GONE);
                 tvordered.setText(null);
                 Toast.makeText(getApplicationContext(),
                         "Ordered item has been cleared", Toast.LENGTH_LONG).show();
