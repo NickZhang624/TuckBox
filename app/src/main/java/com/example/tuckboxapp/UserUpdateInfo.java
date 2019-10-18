@@ -260,6 +260,7 @@ public class UserUpdateInfo extends Menu {
                         "Your information has been updated",
                         Toast.LENGTH_LONG).show();
                 finish();
+                bactoApp();
             } else{
                 Toast.makeText(getApplicationContext(),
                         "Please try again or contact us for further requirement",
@@ -314,6 +315,13 @@ public class UserUpdateInfo extends Menu {
     private void backToMain(){
         finish();
         Intent i = new Intent(this,MainActivity.class);
+        startActivity(i);
+    }
+
+    private void bactoApp(){
+        finish();
+        Intent i = new Intent(this,AppServices.class);
+        i.putExtra(MainActivity.USER_OBJECT,user);
         startActivity(i);
     }
 }

@@ -130,8 +130,6 @@ public class Confirmation extends Menu {
                 Toast.makeText(getApplicationContext(),
                         "Error, please confirm it again.", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(getApplicationContext(),
-                        "Order Successfully! Your meal is on the way now.", Toast.LENGTH_LONG).show();
                 confirmOrder();
             }
         }
@@ -148,7 +146,7 @@ public class Confirmation extends Menu {
     }
 
     private void confirmOrder(){
-        Intent i = new Intent(this,AppServices.class);
+        Intent i = new Intent(this,SplashPaymentScreen.class);
         i.putExtra(MainActivity.USER_OBJECT,user);
         startActivity(i);
     }

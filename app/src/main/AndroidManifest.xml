@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddressEdit"></activity>
+        <activity android:name=".SplashPaymentScreen"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity android:name=".AddressEdit" />
         <activity android:name=".CardEdit" />
         <activity android:name=".AddAddress" />
         <activity android:name=".AddCard" />
