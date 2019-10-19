@@ -23,7 +23,7 @@ import com.example.tuckboxapp.DataModelPackage.User;
 
 import java.util.Calendar;
 
-public class CardEdit extends Menu {
+public class CardEdit extends AppCompatActivity {
     EditText etcard,etdate;
     DatePickerDialog.OnDateSetListener mDate;
     int updateResult,deleteResult;

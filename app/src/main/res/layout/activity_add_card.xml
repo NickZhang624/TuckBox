@@ -51,12 +51,12 @@
             android:inputType="number"
             android:maxLength="16"
             android:textSize="15sp"
-            android:hint="16 digital numbers"/>
+            android:hint="16 digital numbers*"/>
         <TextView
             android:id="@+id/new_expired_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Expired Date"
+            android:hint="Expired Date*"
             android:textSize="15sp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"

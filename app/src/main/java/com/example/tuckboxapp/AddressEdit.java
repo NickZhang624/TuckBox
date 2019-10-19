@@ -15,7 +15,7 @@ import com.example.tuckboxapp.DataModelPackage.Address;
 import com.example.tuckboxapp.DataModelPackage.Cards;
 import com.example.tuckboxapp.DataModelPackage.User;
 
-public class AddressEdit extends Menu {
+public class AddressEdit extends AppCompatActivity {
     EditText etaddress,etcode;
     int updateResult,deleteResult;
     User user;

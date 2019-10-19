@@ -138,9 +138,9 @@ public class OrderPayment extends Menu {
             i.putExtra(MainActivity.USER_OBJECT,user);
             startActivity(i);
         }else if(cb.isChecked() && cb1.isChecked()){
-            Toast.makeText(this, "wrong", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please ONLY select one payment to continue your order", Toast.LENGTH_LONG).show();
         }else if( !cb.isChecked() && !cb1.isChecked()){
-            Toast.makeText(this, "wrong", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please select one of payment to continue", Toast.LENGTH_LONG).show();
         }
     }
 

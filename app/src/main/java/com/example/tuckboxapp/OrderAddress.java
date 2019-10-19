@@ -106,9 +106,9 @@ public class OrderAddress extends Menu {
             i.putExtra(MainActivity.USER_OBJECT,user);
             startActivity(i);
         }else if(cb1.isChecked() && cb1.isChecked()){
-            Toast.makeText(this, "wrong", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please ONLY select one delivery address to continue your order", Toast.LENGTH_LONG).show();
         }else if( !cb1.isChecked() && !cb3.isChecked()){
-            Toast.makeText(this, "wrong", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please select one of delivery address to continue", Toast.LENGTH_LONG).show();
         }
 
     }
